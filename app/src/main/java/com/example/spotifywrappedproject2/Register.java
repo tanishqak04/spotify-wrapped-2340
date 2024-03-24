@@ -17,6 +17,15 @@ public class Register extends AppCompatActivity {
     FirebaseAuth mAuth;
 
     @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null).
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser != null){
+            //add implementation for user if they are already logged in.
+        }
+    }
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
