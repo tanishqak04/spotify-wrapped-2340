@@ -5,18 +5,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
-    String email;
-    String password;
+
+    EditText editTextEmail;
+    EditText editTextPassword;
+    Button buttonReg;
     FirebaseAuth mAuth;
+    String email, password;
 
     @Override
     public void onStart() {
@@ -33,7 +40,16 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
 
+        editTextEmail = findViewById(R.id.email2);
+        editTextPassword = findViewById(R.id.pw2);
+        buttonReg = findViewById(R.id.button2);
 
+        buttonReg.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                email = String.valueOf(editTextEmail.getText());
+                password = String.valueOf(editTextPassword.getText());
+            }
+        });
 
 
 
