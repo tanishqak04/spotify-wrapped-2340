@@ -3,6 +3,7 @@ package com.example.spotifywrappedproject2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -67,6 +68,8 @@ public class Login extends AppCompatActivity {
                                     // Sign in success, move to next activity or show user login success
                                     FirebaseUser user = mAuth.getCurrentUser();
 
+                                    Intent intent = new Intent(Login.this, SpotifyLogin.class);
+                                    startActivity(intent);
 
 
                                 } else {
