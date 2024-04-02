@@ -77,7 +77,8 @@ public class Register extends AppCompatActivity {
                                     FirebaseUser user = mAuth.getCurrentUser(); //Optionally get ref to user
 
                                     //******Take user to next activity and/or display toast confirming******
-
+                                    Intent intent = new Intent(Register.this, SpotifyLogin.class);
+                                    startActivity(intent);
 
 
                                 } else {

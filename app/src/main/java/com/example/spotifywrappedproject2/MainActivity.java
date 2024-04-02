@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String CLIENT_ID = "de91f1c2d30c49c5b761ca92b0f642e7";
     public static final String REDIRECT_URI = "spotify-sdk://auth";
 
-    public static final int AUTH_TOKEN_REQUEST_CODE = 0;
-    public static final int AUTH_CODE_REQUEST_CODE = 1;
+    //public static final int AUTH_TOKEN_REQUEST_CODE = 0;
+    //public static final int AUTH_CODE_REQUEST_CODE = 1;
 
     private final OkHttpClient mOkHttpClient = new OkHttpClient();
     private String mAccessToken, mAccessCode;
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void getToken() {
         final AuthorizationRequest request = getAuthenticationRequest(AuthorizationResponse.Type.TOKEN);
-        AuthorizationClient.openLoginActivity(MainActivity.this, AUTH_TOKEN_REQUEST_CODE, request);
+        //AuthorizationClient.openLoginActivity(MainActivity.this, AUTH_TOKEN_REQUEST_CODE, request);
     }
 
     /**
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void getCode() {
         final AuthorizationRequest request = getAuthenticationRequest(AuthorizationResponse.Type.CODE);
-        AuthorizationClient.openLoginActivity(MainActivity.this, AUTH_CODE_REQUEST_CODE, request);
+        //AuthorizationClient.openLoginActivity(MainActivity.this, AUTH_CODE_REQUEST_CODE, request);
     }
 
 
@@ -96,21 +96,21 @@ public class MainActivity extends AppCompatActivity {
      * When the app leaves this activity to momentarily get a token/code, this function
      * fetches the result of that external activity to get the response from Spotify
      */
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
+    //@Override
+    //protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //super.onActivityResult(requestCode, resultCode, data);
+        //final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
 
         // Check which request code is present (if any)
-        if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
-            mAccessToken = response.getAccessToken();
-            setTextAsync(mAccessToken, tokenTextView);
+        //if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
+            //mAccessToken = response.getAccessToken();
+            //setTextAsync(mAccessToken, tokenTextView);
 
-        } else if (AUTH_CODE_REQUEST_CODE == requestCode) {
-            mAccessCode = response.getCode();
-            setTextAsync(mAccessCode, codeTextView);
-        }
-    }
+        //} //else if (AUTH_CODE_REQUEST_CODE == requestCode) {
+            //mAccessCode = response.getCode();
+            //setTextAsync(mAccessCode, codeTextView);
+        //}
+    //}
 
     /**
      * Get user profile
