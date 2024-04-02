@@ -45,7 +45,7 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@mipmap/musicalnote_foreground"
+                    android:src="@mipmap/ic_launcher"
                     android:layout_gravity="center_horizontal"
                     />
 
