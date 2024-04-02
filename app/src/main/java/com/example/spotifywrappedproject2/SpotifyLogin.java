@@ -28,12 +28,12 @@ import okhttp3.Response;
 
 public class SpotifyLogin extends AppCompatActivity {
 
-    Button buttonLogin = (Button) findViewById(R.id.spotifyLogBtn);
+    Button buttonLogin;
     public static final String CLIENT_ID = "de91f1c2d30c49c5b761ca92b0f642e7";
     public static final String REDIRECT_URI = "spotify-sdk://auth";
 
-    public static final int AUTH_TOKEN_REQUEST_CODE = 0;
-    public static final int AUTH_CODE_REQUEST_CODE = 1;
+    public static final int AUTH_TOKEN_REQUEST_CODE = 100;
+    public static final int AUTH_CODE_REQUEST_CODE = 111;
 
     private final OkHttpClient mOkHttpClient = new OkHttpClient();
     private String mAccessToken, mAccessCode;
@@ -44,12 +44,13 @@ public class SpotifyLogin extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spotify_login);
+        Button buttonLogin = (Button) findViewById(R.id.spotifyLogBtn);
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 getToken();
                 getCode();
-                onGetUserProfileClicked();
+                
             }
         });
     }
@@ -85,14 +86,23 @@ public class SpotifyLogin extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
 
-        // Check which request code is present (if any)
-        if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
-            mAccessToken = response.getAccessToken();
-            setTextAsync(mAccessToken, tokenTextView);
 
+
+        // Check which request code is present (if any)
+        if (response != null && AUTH_TOKEN_REQUEST_CODE == requestCode) {
+            if (response.getError() != null) {
+                Log.e("SpotifyLogin", "Authorization error: " + response.getError());
+                // Handle the error (e.g., display a toast message)
+                Toast.makeText(this, "Authorization error: " + response.getError(), Toast.LENGTH_SHORT).show();
+            } else {
+                mAccessToken = response.getAccessToken();
+                Log.d("SpotifyLogin", "Authorization Response: " + response);
+                Log.e("SpotifyLogin", "Access Token: " + mAccessToken);
+                // setTextAsync(mAccessToken, tokenTextView);
+            }
         } else if (AUTH_CODE_REQUEST_CODE == requestCode) {
             mAccessCode = response.getCode();
-            setTextAsync(mAccessCode, codeTextView);
+            //setTextAsync(mAccessCode, codeTextView);
         }
     }
 
