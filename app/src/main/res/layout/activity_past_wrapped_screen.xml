@@ -45,14 +45,14 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@mipmap/musicalnote_foreground"
+                    android:src="@drawable/musicalnote_foreground"
                     android:layout_gravity="center_horizontal"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Home"
+                    android:text="Wrapped 23'"
                     android:layout_gravity="center_horizontal"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -83,14 +83,14 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/baseline_arrow_back_24"
+                    android:src="@drawable/musicalnote_foreground"
                     android:layout_gravity="center_horizontal"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Home"
+                    android:text="Wrapped 22'"
                     android:layout_gravity="center_horizontal"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -121,14 +121,14 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/baseline_arrow_back_24"
+                    android:src="@drawable/musicalnote_foreground"
                     android:layout_gravity="center_horizontal"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Home"
+                    android:text="Wrapped 21'"
                     android:layout_gravity="center_horizontal"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -159,14 +159,14 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/baseline_arrow_back_24"
+                    android:src="@drawable/musicalnote_foreground"
                     android:layout_gravity="center_horizontal"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Home"
+                    android:text="Wrapped 20'"
                     android:layout_gravity="center_horizontal"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -197,14 +197,14 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/baseline_arrow_back_24"
+                    android:src="@drawable/musicalnote_foreground"
                     android:layout_gravity="center_horizontal"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Home"
+                    android:text="Wrapped 19'"
                     android:layout_gravity="center_horizontal"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -235,14 +235,14 @@
                 <ImageView
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:src="@drawable/baseline_arrow_back_24"
+                    android:src="@drawable/musicalnote_foreground"
                     android:layout_gravity="center_horizontal"
                     />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Home"
+                    android:text="Wrapped 18'"
                     android:layout_gravity="center_horizontal"
                     android:textSize="18sp"
                     android:textStyle="bold"
