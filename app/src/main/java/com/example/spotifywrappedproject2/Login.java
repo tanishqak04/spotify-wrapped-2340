@@ -48,35 +48,39 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 email = String.valueOf(editTextEmail.getText());
                 password = String.valueOf(editTextPassword.getText());
+
+
+
+
+                /*
+                 * Code to login users to Firebase once email and password
+                 * are obtained
+                 *
+                 * Needs Email and Password as Strings obtained from user input
+                 *
+                 *  */
+                mAuth.signInWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    // Sign in success, move to next activity or show user login success
+                                    FirebaseUser user = mAuth.getCurrentUser();
+
+
+
+                                } else {
+                                    // If sign in fails, display a toast
+                                    Toast.makeText(Login.this, "Login failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
             }
+
+
         });
 
-
-
-        /*
-         * Code to login users to Firebase once email and password
-         * are obtained
-         *
-         * Needs Email and Password as Strings obtained from user input
-         *
-         *  */
-        mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, move to next activity or show user login success
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-
-
-                        } else {
-                            // If sign in fails, display a toast
-                            Toast.makeText(Login.this, "Login failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
 
     }
 }

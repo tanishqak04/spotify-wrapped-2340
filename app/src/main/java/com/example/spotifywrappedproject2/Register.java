@@ -24,7 +24,7 @@ public class Register extends AppCompatActivity {
 
     EditText editTextEmail;
     EditText editTextPassword;
-    Button buttonReg;
+    Button buttonReg, buttonLog;
     FirebaseAuth mAuth;
     String email, password;
 
@@ -48,6 +48,16 @@ public class Register extends AppCompatActivity {
         editTextEmail = findViewById(R.id.email1);
         editTextPassword = findViewById(R.id.pw1);
         buttonReg = findViewById(R.id.button1);
+        buttonLog = findViewById(R.id.button3);
+
+
+        buttonLog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Register.this, Login.class);
+                startActivity(intent);
+            }
+        });
 
 
         buttonReg.setOnClickListener(new View.OnClickListener() {
