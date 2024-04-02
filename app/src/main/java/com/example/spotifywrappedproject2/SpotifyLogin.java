@@ -32,8 +32,8 @@ public class SpotifyLogin extends AppCompatActivity {
     public static final String CLIENT_ID = "de91f1c2d30c49c5b761ca92b0f642e7";
     public static final String REDIRECT_URI = "spotify-sdk://auth";
 
-    public static final int AUTH_TOKEN_REQUEST_CODE = 100;
-    public static final int AUTH_CODE_REQUEST_CODE = 111;
+    public static final int AUTH_TOKEN_REQUEST_CODE = 0;
+    public static final int AUTH_CODE_REQUEST_CODE = 1;
 
     private final OkHttpClient mOkHttpClient = new OkHttpClient();
     private String mAccessToken, mAccessCode;
