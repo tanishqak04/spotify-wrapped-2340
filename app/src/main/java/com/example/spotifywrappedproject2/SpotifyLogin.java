@@ -50,7 +50,9 @@ public class SpotifyLogin extends AppCompatActivity {
             public void onClick(View view) {
                 getToken();
                 getCode();
-                
+
+                Intent intent = new Intent(SpotifyLogin.this, UserStoryMainPage.class);
+                startActivity(intent);
             }
         });
     }
