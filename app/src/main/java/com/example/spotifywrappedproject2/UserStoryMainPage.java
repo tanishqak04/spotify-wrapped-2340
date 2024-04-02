@@ -14,13 +14,14 @@ import java.util.List;
 
 public class UserStoryMainPage extends AppCompatActivity {
     private boolean userInteracted = false;
+    private Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_story_main_page);
 
         //Initialize the spinner
-        Spinner spinner = findViewById(R.id.spinner2);
+        spinner = findViewById(R.id.spinner2);
 
         List<String> pageOptions = new ArrayList<>();
         pageOptions.add("Select an option"); // Default option
@@ -49,6 +50,14 @@ public class UserStoryMainPage extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Reset user interaction flag and spinner position
+        userInteracted = false;
+        spinner.setSelection(0); // Set the spinner to the default
     }
 
     public void onUserInteraction() {

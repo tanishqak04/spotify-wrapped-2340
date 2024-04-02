@@ -15,7 +15,6 @@
         <activity
             android:name=".UserStoryMainPage"
             android:exported="true">
-
         </activity>
 
         <activity
@@ -29,7 +28,9 @@
 
         <activity
             android:name=".PastWrappedScreen"
-            android:exported="true"/>
+            android:label="Past Wrapped"
+            android:exported="true"
+            android:parentActivityName=".UserStoryMainPage"/>
     </application>
 
 </manifest>
