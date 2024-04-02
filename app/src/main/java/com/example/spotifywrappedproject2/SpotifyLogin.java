@@ -52,6 +52,7 @@ public class SpotifyLogin extends AppCompatActivity {
                 getCode();
 
                 Intent intent = new Intent(SpotifyLogin.this, UserStoryMainPage.class);
+                intent.putExtra("accessToken", mAccessToken);
                 startActivity(intent);
             }
         });

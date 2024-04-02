@@ -20,6 +20,8 @@ public class UserStoryMainPage extends AppCompatActivity {
         setContentView(R.layout.activity_user_story_main_page);
         Spinner spinner = findViewById(R.id.spinner2);
 
+        String accessToken = getIntent().getStringExtra("accessToken");
+
         List<String> pageOptions = new ArrayList<>();
         pageOptions.add("Past Wrapped");
         pageOptions.add("User Story 2");
@@ -48,6 +50,7 @@ public class UserStoryMainPage extends AppCompatActivity {
         switch(page) {
             case "User Story 1":
                 myIntent = new Intent(UserStoryMainPage.this, PastWrappedScreen.class);
+                startActivity(myIntent);
                 break;
 
 //            case "User Story 2":
