@@ -49,11 +49,14 @@ public class SpotifyLogin extends AppCompatActivity {
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 getToken();
-                getCode();
+                //getCode();
 
-                Intent intent = new Intent(SpotifyLogin.this, UserStoryMainPage.class);
-                intent.putExtra("accessToken", mAccessToken);
-                startActivity(intent);
+                System.out.println(mAccessToken);
+                if (mAccessToken != null) {
+                    Intent intent = new Intent(SpotifyLogin.this, UserStoryMainPage.class);
+                    intent.putExtra("accessToken", mAccessToken);
+                    startActivity(intent);
+                }
             }
         });
     }
