@@ -39,11 +39,14 @@
 
         <activity
             android:name=".PastWrappedScreen"
-            android:exported="true"/>
+            android:exported="true"
+            android:label="Past Wrapped"
+            android:parentActivityName=".UserStoryMainPage"
+            />
 
         <activity
             android:name=".UserStoryMainPage"
-            android:exported="false" />
+            android:exported="true" />
     </application>
 
 </manifest>
