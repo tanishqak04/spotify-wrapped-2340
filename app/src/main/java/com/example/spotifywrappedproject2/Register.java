@@ -3,7 +3,9 @@ package com.example.spotifywrappedproject2;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
 import android.view.View;
@@ -30,54 +32,63 @@ public class Register extends AppCompatActivity {
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null).
+        mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            //add implementation for user if they are already logged in.
+            Intent intent = new Intent(Register.this, SpotifyLogin.class);
+            startActivity(intent);
+
         }
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        mAuth = FirebaseAuth.getInstance();
 
         editTextEmail = findViewById(R.id.email1);
         editTextPassword = findViewById(R.id.pw1);
         buttonReg = findViewById(R.id.button1);
 
+
         buttonReg.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 email = String.valueOf(editTextEmail.getText());
                 password = String.valueOf(editTextPassword.getText());
+
+                if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+                    // Handle the case where email or password is empty
+                    Toast.makeText(Register.this, "Email and password cannot be empty", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                /*
+                 * Code to register users to Firebase once email and password
+                 * are obtained.
+                 *
+                 * Needs Email and Password as Strings obtained from user input
+                 *
+                 *  */
+                mAuth.createUserWithEmailAndPassword(email, password)
+                        .addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    // User is registered successfully
+                                    FirebaseUser user = mAuth.getCurrentUser(); //Optionally get ref to user
+
+                                    //******Take user to next activity and/or display toast confirming******
+
+
+
+                                } else {
+                                    // If sign in fails, displays a toast
+                                    Toast.makeText(Register.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                }
+                            }
+                        });
+
             }
         });
-
-        /*
-        * Code to register users to Firebase once email and password
-        * are obtained.
-        *
-        * Needs Email and Password as Strings obtained from user input
-        *
-        *  */
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // User is registered successfully
-                            FirebaseUser user = mAuth.getCurrentUser(); //Optionally get ref to user
-
-                            //******Take user to next activity and/or display toast confirming******
-
-
-
-                        } else {
-                            // If sign in fails, displays a toast
-                            Toast.makeText(Register.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-
     }
 }
