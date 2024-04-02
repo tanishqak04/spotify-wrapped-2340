@@ -10,12 +10,12 @@
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\jseal\.android\avd\Spotify.avd" />
+                  <value value="$USER_HOME$/.android/avd/Pixel_3a_API_34_extension_level_7_arm64-v8a.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-03-26T16:53:29.270946900Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-04-02T01:31:30.801981Z" />
         </State>
       </entry>
     </value>
