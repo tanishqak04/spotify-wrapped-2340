@@ -60,6 +60,12 @@
                 android:layout_weight="1"
                 android:text="Get User Profile" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/leave_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Leave" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

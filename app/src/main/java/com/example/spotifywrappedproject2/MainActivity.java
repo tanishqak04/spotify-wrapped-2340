@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         Button tokenBtn = (Button) findViewById(R.id.token_btn);
         Button codeBtn = (Button) findViewById(R.id.code_btn);
         Button profileBtn = (Button) findViewById(R.id.profile_btn);
+        Button leaveBtn = (Button) findViewById(R.id.leave_button);
 
         // Set the click listeners for the buttons
 
@@ -65,6 +66,12 @@ public class MainActivity extends AppCompatActivity {
 
         profileBtn.setOnClickListener((v) -> {
             onGetUserProfileClicked();
+        });
+
+        leaveBtn.setOnClickListener((v) -> {
+            Intent intent = new Intent(MainActivity.this, artistsRec.class);
+            intent.putExtra("accessToken", mAccessToken);
+            startActivity(intent);
         });
 
     }
