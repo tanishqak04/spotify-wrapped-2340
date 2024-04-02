@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -36,7 +35,7 @@ public class UserStoryMainPage extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        //Set the spinner item selection listner
+        //Set the spinner item selection listener
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -52,7 +51,7 @@ public class UserStoryMainPage extends AppCompatActivity {
         });
     }
 
-    public void onUserInteracion() {
+    public void onUserInteraction() {
         super.onUserInteraction();
         userInteracted = true;
     }
@@ -60,30 +59,16 @@ public class UserStoryMainPage extends AppCompatActivity {
 
 
     private void navigateToPage(String page) {
-        Intent myIntent;
-        switch(page) {
-            case "Past Wrapped":
-                Log.d("Navigation", "Navigating to PastWrappedScreen");
-                myIntent = new Intent(UserStoryMainPage.this, PastWrappedScreen.class);
-                startActivity(myIntent);
-                break;
+        if (!userInteracted) return;
 
-//            case "User Story 2":
-//                myIntent = new Intent(UserStoryMainPage.this, UserStory2.class);
-//                break;
-//
-//            case "User Story 3":
-//                myIntent = new Intent(UserStoryMainPage.this, UserStory3.class);
-//                break;
-//
-//            case "User Story 4":
-//                myIntent = new Intent(UserStoryMainPage.this, UserStory4.class);
-//                break;
-
-            default:
-                myIntent = null;
-                break;
+        Intent myIntent = null;
+        if ("Past Wrapped".equals(page)) {
+            myIntent = new Intent(UserStoryMainPage.this, PastWrappedScreen.class);
+        } else if ("User Story 2".equals(page)) {
+            // myIntent = new Intent(UserStoryMainPage.this, UserStory2.class);
         }
+        // Add more else if statements for other pages
+
         if (myIntent != null) {
             startActivity(myIntent);
         }
