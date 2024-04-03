@@ -22,7 +22,7 @@
         android:layout_marginTop="170dp"
         android:layout_marginBottom="100dp"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center_horizontal">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -33,27 +33,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1: "
+                android:text="@string/_1"
                 android:textSize="55sp"
                 android:textStyle="bold|italic"
-                android:layout_gravity="center_horizontal">
-            </TextView>
-
+                android:layout_gravity="center_horizontal"/>
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/musicalnote_foreground"
-                android:layout_gravity="center_horizontal">
-            </ImageView>
+                android:layout_gravity="center_horizontal"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Top Song Name"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/temp_top_song_name"
                 android:textSize="30sp"
                 android:textStyle="bold|italic"
-                android:layout_gravity="center_horizontal">
-            </TextView>
+                android:paddingTop="20dp"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -65,7 +63,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2: "
+                android:text="@string/_2"
                 android:textSize="55sp"
                 android:textStyle="bold|italic"
                 android:layout_gravity="center_horizontal">
@@ -75,8 +73,16 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/musicalnote_foreground"
-                android:layout_gravity="center_horizontal">
-            </ImageView>
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/temp_top_song_name"
+                android:textSize="30sp"
+                android:textStyle="bold|italic"
+                android:paddingTop="20dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -88,18 +94,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3: "
+                android:text="@string/_3"
                 android:textSize="55sp"
                 android:textStyle="bold|italic"
-                android:layout_gravity="center_horizontal">
-            </TextView>
+                android:layout_gravity="center_horizontal"/>
 
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/musicalnote_foreground"
-                android:layout_gravity="center_horizontal">
-            </ImageView>
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/temp_top_song_name"
+                android:textSize="30sp"
+                android:textStyle="bold|italic"
+                android:paddingTop="20dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -111,18 +124,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4: "
+                android:text="@string/_4"
                 android:textSize="55sp"
                 android:textStyle="bold|italic"
-                android:layout_gravity="center_horizontal">
-            </TextView>
+                android:layout_gravity="center_horizontal"/>
 
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/musicalnote_foreground"
-                android:layout_gravity="center_horizontal">
-            </ImageView>
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/temp_top_song_name"
+                android:textSize="30sp"
+                android:textStyle="bold|italic"
+                android:paddingTop="20dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -134,18 +154,25 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5: "
+                android:text="@string/_5"
                 android:textSize="55sp"
                 android:textStyle="bold|italic"
-                android:layout_gravity="center_horizontal">
-            </TextView>
+                android:layout_gravity="center_horizontal"/>
 
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/musicalnote_foreground"
-                android:layout_gravity="center_horizontal">
-            </ImageView>
+                android:layout_gravity="center_horizontal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/temp_top_song_name"
+                android:textSize="30sp"
+                android:textStyle="bold|italic"
+                android:paddingTop="20dp"/>
         </LinearLayout>
 
 
@@ -155,7 +182,7 @@
         android:id="@+id/past_wrap_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Your Spotify Wrapped"
+        android:text="@string/spotify_wrapped_title"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:textStyle="bold|italic"
