@@ -6,11 +6,10 @@ import okhttp3.Request;
 
 public class API {
     private String accessToken;
-    private OkHttpClient client;
+    private final OkHttpClient client = new OkHttpClient();
 
     public API(String accessToken) {
         this.accessToken = accessToken;
-        this.client = new OkHttpClient();
     }
 
     //api methods below
@@ -25,5 +24,8 @@ public class API {
         // Execute the request asynchronously
         client.newCall(request).enqueue(callback);
     }
+
+
+    
 
 }
