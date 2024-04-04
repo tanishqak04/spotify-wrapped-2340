@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "632016202937",
+    "firebase_url": "https://spotify-wrapped-project-7ae4e-default-rtdb.firebaseio.com",
     "project_id": "spotify-wrapped-project-7ae4e",
     "storage_bucket": "spotify-wrapped-project-7ae4e.appspot.com"
   },
@@ -12,7 +13,20 @@
           "package_name": "com.example.spotifywrappedproject2"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "632016202937-24f515mves2o6621nf20nnn941hlctnq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.spotifywrappedproject2",
+            "certificate_hash": "e5e1319237ae39789d328a9a802b287e250c756b"
+          }
+        },
+        {
+          "client_id": "632016202937-vtv7032umcv4v64f299f656qeufrntld.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDD87MHKFu_l7SZqUM1AYB9y2qfhQetan4"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "632016202937-vtv7032umcv4v64f299f656qeufrntld.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

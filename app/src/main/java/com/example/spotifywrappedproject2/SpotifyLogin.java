@@ -1,10 +1,12 @@
 package com.example.spotifywrappedproject2;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,51 +26,40 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class MainActivity extends AppCompatActivity {
+public class SpotifyLogin extends AppCompatActivity {
 
+    Button buttonLogin;
     public static final String CLIENT_ID = "de91f1c2d30c49c5b761ca92b0f642e7";
     public static final String REDIRECT_URI = "spotify-sdk://auth";
 
-    //public static final int AUTH_TOKEN_REQUEST_CODE = 0;
-    //public static final int AUTH_CODE_REQUEST_CODE = 1;
+    public static final int AUTH_TOKEN_REQUEST_CODE = 0;
+    public static final int AUTH_CODE_REQUEST_CODE = 1;
 
     private final OkHttpClient mOkHttpClient = new OkHttpClient();
     private String mAccessToken, mAccessCode;
     private Call mCall;
 
     private TextView tokenTextView, codeTextView, profileTextView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_spotify_login);
+        Button buttonLogin = (Button) findViewById(R.id.spotifyLogBtn);
 
-        // Initialize the views
-        tokenTextView = (TextView) findViewById(R.id.token_text_view);
-        codeTextView = (TextView) findViewById(R.id.code_text_view);
-        profileTextView = (TextView) findViewById(R.id.response_text_view);
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                getToken();
+                //getCode();
 
-        // Initialize the buttons
-        Button tokenBtn = (Button) findViewById(R.id.token_btn);
-        Button codeBtn = (Button) findViewById(R.id.code_btn);
-        Button profileBtn = (Button) findViewById(R.id.profile_btn);
-
-        // Set the click listeners for the buttons
-
-        tokenBtn.setOnClickListener((v) -> {
-            getToken();
+                System.out.println(mAccessToken);
+                if (mAccessToken != null) {
+                    Intent intent = new Intent(SpotifyLogin.this, UserStoryMainPage.class);
+                    intent.putExtra("accessToken", mAccessToken);
+                    startActivity(intent);
+                }
+            }
         });
-
-        codeBtn.setOnClickListener((v) -> {
-            getCode();
-        });
-
-        profileBtn.setOnClickListener((v) -> {
-            onGetUserProfileClicked();
-        });
-
     }
-
     /**
      * Get token from Spotify
      * This method will open the Spotify login activity and get the token
@@ -77,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void getToken() {
         final AuthorizationRequest request = getAuthenticationRequest(AuthorizationResponse.Type.TOKEN);
-        //AuthorizationClient.openLoginActivity(MainActivity.this, AUTH_TOKEN_REQUEST_CODE, request);
+        AuthorizationClient.openLoginActivity(SpotifyLogin.this, AUTH_TOKEN_REQUEST_CODE, request);
     }
 
     /**
@@ -88,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void getCode() {
         final AuthorizationRequest request = getAuthenticationRequest(AuthorizationResponse.Type.CODE);
-        //AuthorizationClient.openLoginActivity(MainActivity.this, AUTH_CODE_REQUEST_CODE, request);
+        AuthorizationClient.openLoginActivity(SpotifyLogin.this, AUTH_CODE_REQUEST_CODE, request);
     }
 
 
@@ -96,21 +87,30 @@ public class MainActivity extends AppCompatActivity {
      * When the app leaves this activity to momentarily get a token/code, this function
      * fetches the result of that external activity to get the response from Spotify
      */
-    //@Override
-    //protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
-        //final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
+
+
 
         // Check which request code is present (if any)
-        //if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
-            //mAccessToken = response.getAccessToken();
-            //setTextAsync(mAccessToken, tokenTextView);
-
-        //} //else if (AUTH_CODE_REQUEST_CODE == requestCode) {
-            //mAccessCode = response.getCode();
+        if (response != null && AUTH_TOKEN_REQUEST_CODE == requestCode) {
+            if (response.getError() != null) {
+                Log.e("SpotifyLogin", "Authorization error: " + response.getError());
+                // Handle the error (e.g., display a toast message)
+                Toast.makeText(this, "Authorization error: " + response.getError(), Toast.LENGTH_SHORT).show();
+            } else {
+                mAccessToken = response.getAccessToken();
+                Log.d("SpotifyLogin", "Authorization Response: " + response);
+                Log.e("SpotifyLogin", "Access Token: " + mAccessToken);
+                // setTextAsync(mAccessToken, tokenTextView);
+            }
+        } else if (AUTH_CODE_REQUEST_CODE == requestCode) {
+            mAccessCode = response.getCode();
             //setTextAsync(mAccessCode, codeTextView);
-        //}
-    //}
+        }
+    }
 
     /**
      * Get user profile
@@ -135,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.d("HTTP", "Failed to fetch data: " + e);
-                Toast.makeText(MainActivity.this, "Failed to fetch data, watch Logcat for more details",
+                Toast.makeText(SpotifyLogin.this, "Failed to fetch data, watch Logcat for more details",
                         Toast.LENGTH_SHORT).show();
             }
 
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                     setTextAsync(jsonObject.toString(3), profileTextView);
                 } catch (JSONException e) {
                     Log.d("JSON", "Failed to parse data: " + e);
-                    Toast.makeText(MainActivity.this, "Failed to parse data, watch Logcat for more details",
+                    Toast.makeText(SpotifyLogin.this, "Failed to parse data, watch Logcat for more details",
                             Toast.LENGTH_SHORT).show();
                 }
             }

@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Spotify Wrapped Project #2</string>
+    <string name="wrapped_23">Wrapped 23\'</string>
+    <string name="wrapped_18">Wrapped 18\'</string>
+    <string name="past_wraps">Past Wraps</string>
+    <string name="back">Back</string>
+    <string name="wrapped_19">Wrapped 19\'</string>
+    <string name="wrapped_20">Wrapped 20\'</string>
+    <string name="wrapped_21">Wrapped 21\'</string>
+    <string name="wrapped_22">Wrapped 22\'</string>
+    <string name="_1">1:</string>
+    <string name="temp_top_song_name">Top Song Name</string>
+    <string name="_2">2:</string>
+    <string name="_3">3:</string>
+    <string name="_4">4:</string>
+    <string name="_5">5:</string>
+    <string name="spotify_wrapped_title">Your Spotify Wrapped</string>
 </resources>
