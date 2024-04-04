@@ -28,7 +28,7 @@ public class UserStoryMainPage extends AppCompatActivity {
         List<String> pageOptions = new ArrayList<>();
         pageOptions.add("Select an option"); // Default option
         pageOptions.add("Past Wrapped");
-        pageOptions.add("User Story 2");
+        pageOptions.add("Wrapped");
         //pageOptions.add("User Story 3");
         //pageOptions.add("User Story 4");
         // add more user stories if needed
@@ -75,8 +75,8 @@ public class UserStoryMainPage extends AppCompatActivity {
         Intent myIntent = null;
         if ("Past Wrapped".equals(page)) {
             myIntent = new Intent(UserStoryMainPage.this, PastWrappedScreen.class);
-        } else if ("User Story 2".equals(page)) {
-            // myIntent = new Intent(UserStoryMainPage.this, UserStory2.class);
+        } else if ("Wrapped".equals(page)) {
+            myIntent = new Intent(UserStoryMainPage.this, Wrapped.class);
         }
         // Add more else if statements for other pages
 
