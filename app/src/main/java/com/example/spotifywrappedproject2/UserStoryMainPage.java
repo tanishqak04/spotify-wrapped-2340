@@ -82,6 +82,7 @@ public class UserStoryMainPage extends AppCompatActivity {
             myIntent.putExtra("accessToken", accessToken);
         } else if ("Wrapped".equals(page)) {
             myIntent = new Intent(UserStoryMainPage.this, Wrapped.class);
+            myIntent.putExtra("accessToken", accessToken);
         }
         // Add more else if statements for other pages
 
