@@ -30,6 +30,7 @@ public class UserStoryMainPage extends AppCompatActivity {
         pageOptions.add("Select an option"); // Default option
         pageOptions.add("Past Wrapped");
         pageOptions.add("Discover New Artists");
+        pageOptions.add("Wrapped");
         //pageOptions.add("User Story 3");
         //pageOptions.add("User Story 4");
         // add more user stories if needed
@@ -79,6 +80,8 @@ public class UserStoryMainPage extends AppCompatActivity {
         } else if ("Discover New Artists".equals(page)) {
             myIntent = new Intent(UserStoryMainPage.this, DiscoverNewArtists.class);
             myIntent.putExtra("accessToken", accessToken);
+        } else if ("Wrapped".equals(page)) {
+            myIntent = new Intent(UserStoryMainPage.this, Wrapped.class);
         }
         // Add more else if statements for other pages
 
