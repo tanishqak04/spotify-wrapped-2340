@@ -11,7 +11,7 @@
         android:id="@+id/past_title_view"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@drawable/wrapped_title"/>
+        android:background="@drawable/wrapped_title" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -197,5 +197,19 @@
         android:textStyle="bold|italic"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"/>
+
+    <Button
+        android:id="@+id/exportButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="162dp"
+        android:layout_marginTop="658dp"
+        android:layout_marginEnd="158dp"
+        android:layout_marginBottom="25dp"
+        android:text="Export" />
 
 </RelativeLayout>
