@@ -20,6 +20,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class Wrapped extends AppCompatActivity {
+    private String accessToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,5 +64,8 @@ public class Wrapped extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+
+        setContentView(R.layout.activity_wrapped);
+        accessToken = getIntent().getStringExtra("accessToken");
     }
 }

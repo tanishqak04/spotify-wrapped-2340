@@ -15,6 +15,7 @@ import java.util.List;
 public class UserStoryMainPage extends AppCompatActivity {
     private boolean userInteracted = false;
     private Spinner spinner;
+    private String accessToken;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +24,7 @@ public class UserStoryMainPage extends AppCompatActivity {
         //Initialize the spinner
         spinner = findViewById(R.id.spinner2);
 
-        String accessToken = getIntent().getStringExtra("accessToken");
+        accessToken = getIntent().getStringExtra("accessToken");
 
         List<String> pageOptions = new ArrayList<>();
         pageOptions.add("Select an option"); // Default option
@@ -77,6 +78,7 @@ public class UserStoryMainPage extends AppCompatActivity {
             myIntent = new Intent(UserStoryMainPage.this, PastWrappedScreen.class);
         } else if ("Wrapped".equals(page)) {
             myIntent = new Intent(UserStoryMainPage.this, Wrapped.class);
+            myIntent.putExtra("accessToken", accessToken);
         }
         // Add more else if statements for other pages
 
