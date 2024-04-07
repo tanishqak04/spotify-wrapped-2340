@@ -50,6 +50,9 @@
             android:name=".DiscoverNewArtists"
             android:exported="false" />
         <activity
+            android:name=".HalloweenWrap"
+            android:exported="false" />
+        <activity
             android:name=".SpotifyLogin"
             android:exported="false" />
         <activity
