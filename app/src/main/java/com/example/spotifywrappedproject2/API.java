@@ -25,6 +25,16 @@ public class API {
         client.newCall(request).enqueue(callback);
     }
 
+    public void getTopTracks(Callback callback) {
+        Request request = new Request.Builder()
+                .url("https://api.spotify.com/v1/me/top/tracks?limit=10")
+                .header("Authorization", "Bearer " + accessToken)
+                .build();
+
+        // Execute the request asynchronously
+        client.newCall(request).enqueue(callback);
+    }
+
 
     
 
