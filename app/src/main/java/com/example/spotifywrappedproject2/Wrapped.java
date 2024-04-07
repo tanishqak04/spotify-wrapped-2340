@@ -64,5 +64,8 @@ public class Wrapped extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+
+        setContentView(R.layout.activity_wrapped);
+        accessToken = getIntent().getStringExtra("accessToken");
     }
 }
