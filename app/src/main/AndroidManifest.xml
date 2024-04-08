@@ -29,6 +29,9 @@
             android:name=".OneWeekWrapped"
             android:exported="false" />
         <activity
+            android:name=".easter_wrap"
+            android:exported="false" />
+        <activity
             android:name=".ChristmasWrap"
             android:exported="false" />
         <activity
