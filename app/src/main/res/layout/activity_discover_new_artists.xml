@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDB0C0">
+
+    <View
+        android:id="@+id/discover_title_view"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/wrapped_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="100dp"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:id="@+id/recommendationsLayout">
+
+        <!-- Dynamic content for recommended artists will be added here programmatically -->
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/discover_new_artist_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Discover New Artists"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        android:textStyle="bold|italic"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
+
+    <Button
+        android:id="@+id/backButtonDiscover"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="24dp"
+        android:text="@string/back" />
+
+</RelativeLayout>
