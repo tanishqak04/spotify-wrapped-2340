@@ -3,8 +3,11 @@ package com.example.spotifywrappedproject2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ImageView;
@@ -111,14 +114,13 @@ public class DiscoverNewArtists extends AppCompatActivity {
                             // Parse the JSON response to get the recommendations
                             JSONObject json = new JSONObject(responseData);
                             JSONArray jsonArray = json.getJSONArray("tracks");
-                            for (int i = 0; i < jsonArray.length(); i++) {
+                            for (int i = 0; i < jsonArray.length() && i < 5; i++) { // Limit to top 5 artists
                                 JSONObject trackJson = jsonArray.getJSONObject(i);
                                 JSONArray artists = trackJson.getJSONArray("artists");
                                 if (artists.length() > 0) {
                                     String artistName = artists.getJSONObject(0).getString("name");
-                                    String artistImageUrl = ""; // In a real case, you would get the image URL from the artist object
 
-                                    addArtistToLayout(artistName, artistImageUrl);
+                                    addArtistToLayout(artistName, i + 1);
                                 }
                             }
                         } catch (Exception e) {
@@ -133,21 +135,34 @@ public class DiscoverNewArtists extends AppCompatActivity {
         });
     }
 
-    private void addArtistToLayout(String artistName, String artistImageUrl) {
+    private void addArtistToLayout(String artistName, int rank) {
+        // Create a horizontal LinearLayout for each artist entry
+        LinearLayout artistEntryLayout = new LinearLayout(this);
+        artistEntryLayout.setOrientation(LinearLayout.HORIZONTAL);
+        artistEntryLayout.setGravity(Gravity.START);
+
+        // Create TextView for the rank
+        TextView rankView = new TextView(this);
+        rankView.setText(rank + ". ");
+        rankView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 55);
+        rankView.setTypeface(rankView.getTypeface(), Typeface.BOLD_ITALIC);
+        // Adjust the styling as needed
+
         // Create TextView for the artist name
-        TextView artistNameView = new TextView(DiscoverNewArtists.this);
+        TextView artistNameView = new TextView(this);
         artistNameView.setText(artistName);
-        artistNameView.setTextSize(16f);
-        // Styling and layout params as needed
+        artistNameView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
+        artistNameView.setTypeface(artistNameView.getTypeface(), Typeface.BOLD_ITALIC);
+        // Adjust the styling as needed
 
-        // Create ImageView for the artist image
-        ImageView artistImageView = new ImageView(DiscoverNewArtists.this);
-        // Load image with Glide or similar library
-        // Glide.with(this).load(artistImageUrl).into(artistImageView);
-        // Styling and layout params as needed
+        // Add the rankView and artistNameView to the artistEntryLayout
+        artistEntryLayout.addView(rankView);
+        artistEntryLayout.addView(artistNameView);
 
-        // Add views to your layout
-        recommendationsLayout.addView(artistImageView);
-        recommendationsLayout.addView(artistNameView);
+        // Add padding or layout parameters as needed
+        artistEntryLayout.setPadding(0, 20, 0, 20);
+
+        // Add the artistEntryLayout to your recommendationsLayout
+        recommendationsLayout.addView(artistEntryLayout);
     }
 }

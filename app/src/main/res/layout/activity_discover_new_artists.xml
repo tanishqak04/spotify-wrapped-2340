@@ -10,20 +10,22 @@
         android:layout_height="120dp"
         android:background="@drawable/wrapped_title" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginRight="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="170dp"
-        android:layout_marginBottom="100dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:id="@+id/recommendationsLayout">
+        android:layout_below="@id/discover_title_view">
 
-        <!-- Dynamic content for recommended artists will be added here programmatically -->
-
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/recommendationsLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+            <!-- Dynamic content for recommended artists will be added here programmatically -->
+        </LinearLayout>
+    </ScrollView>
 
     <TextView
         android:id="@+id/discover_new_artist_title"
