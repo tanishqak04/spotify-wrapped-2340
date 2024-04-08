@@ -15,6 +15,9 @@
         android:theme="@style/Theme.SpotifyWrappedProject2"
         tools:targetApi="31">
         <activity
+            android:name=".ChristmasWrap"
+            android:exported="false" />
+        <activity
             android:name=".wrapped18"
             android:exported="false" />
         <activity
