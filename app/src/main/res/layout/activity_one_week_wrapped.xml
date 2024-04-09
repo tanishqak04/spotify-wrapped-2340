@@ -13,11 +13,6 @@
         android:layout_height="120dp"
         android:background="@drawable/wrapped_title"
         />
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/past_title_view" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -187,11 +182,18 @@
         android:id="@+id/past_wrap_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/spotify_wrapped_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/_1_week_wrapped"
         android:textColor="@color/white"
         android:textSize="32sp"
-        android:textStyle="bold|italic"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"/>
+        android:textStyle="bold|italic" />
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="326dp"
+        android:text="@string/back" />
 
 </RelativeLayout>
