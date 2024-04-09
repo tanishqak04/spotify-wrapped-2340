@@ -15,4 +15,8 @@
     <string name="_4">4:</string>
     <string name="_5">5:</string>
     <string name="spotify_wrapped_title">Your Spotify Wrapped</string>
+    <string name="_1_month_wrapped">1 Month Wrapped</string>
+    <string name="_1_week_wrapped">1 Week Wrapped</string>
+    <string name="_1_year_wrapped">1 Year Wrapped</string>
+    <string name="all_time_wrapped">All Time Wrapped</string>
 </resources>
