@@ -1,14 +1,16 @@
 package com.example.spotifywrappedproject2;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -16,56 +18,68 @@ import java.io.IOException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
-import okhttp3.Request;
 import okhttp3.Response;
 
 public class Wrapped extends AppCompatActivity {
     private String accessToken;
+
+    private int[] imageViewIds = {R.id.albumCover1, R.id.albumCover2, R.id.albumCover3, R.id.albumCover4, R.id.albumCover5};
+    private int[] textViewIds = {R.id.songTitle1, R.id.songTitle2, R.id.songTitle3, R.id.songTitle4, R.id.songTitle5};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wrapped);
 
-        ImageView top1pic = findViewById(R.id.top1pic);
         accessToken = getIntent().getStringExtra("accessToken");
-        API trackApi = new API(accessToken);
+        API api = new API(accessToken);
 
 
-        trackApi.getTopTracks(new Callback() {
+        api.getTopTracks(new Callback() {
             @Override
-            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                if (response.isSuccessful()) {
-                    String responseBody = response.body().string();
-                    try {
-                        JSONObject json = new JSONObject(responseBody);
-                        final String output = json.getString("images");
-                        //String output = "Hello, " + displayName;
-                        // Update UI on the main thread
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-                                top1pic.setImageURI(Uri.parse(output));
+            public void onFailure(Call call, IOException e) {
+                Log.e("Wrapped", "Network error: ", e);
+                runOnUiThread(() -> Toast.makeText(Wrapped.this, "Network error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String responseBody = response.body().string();
+                Log.d("Wrapped", "API Response: " + responseBody);
+                if (!response.isSuccessful()) {
+                    runOnUiThread(() -> Toast.makeText(Wrapped.this, "Error fetching top tracks: " + response.message(), Toast.LENGTH_SHORT).show());
+                    return;
+                }
+
+                try {
+                    JSONObject jsonObject = new JSONObject(responseBody);
+                    final JSONArray tracks = jsonObject.getJSONArray("items");
+
+                    runOnUiThread(() -> {
+                        try {
+                            for (int i = 0; i < tracks.length() && i < imageViewIds.length; i++) {
+                                JSONObject track = tracks.getJSONObject(i);
+                                JSONObject album = track.getJSONObject("album");
+                                JSONArray images = album.getJSONArray("images");
+                                String imageUrl = images.getJSONObject(0).getString("url");
+                                String trackName = track.getString("name");
+
+                                ImageView imageView = findViewById(imageViewIds[i]);
+                                TextView textView = findViewById(textViewIds[i]);
+
+                                // Use an image loading library like Glide to load the image
+                                Glide.with(Wrapped.this).load(imageUrl).into(imageView);
+
+                                textView.setText(trackName);
                             }
-                        });
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                } else {
-                    Toast.makeText(Wrapped.this, "response unsuccessful",
-                            Toast.LENGTH_SHORT).show();
+                        } catch (JSONException e) {
+                            Log.e("Wrapped", "JSON parsing error: " + e.getMessage());
+                        }
+                    });
+                } catch (JSONException e) {
+                    Log.e("Wrapped", "Error parsing top tracks response: " + e.getMessage());
                 }
             }
-
-            @Override
-            public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                Log.d("HTTP", "Failed to fetch data: " + e);
-                Toast.makeText(Wrapped.this, "Failed to fetch data, watch Logcat for more details",
-                        Toast.LENGTH_SHORT).show();
-            }
         });
-
-        setContentView(R.layout.activity_wrapped);
-        accessToken = getIntent().getStringExtra("accessToken");
     }
 }
