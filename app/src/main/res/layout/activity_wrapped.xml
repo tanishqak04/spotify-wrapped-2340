@@ -15,6 +15,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="100dp"
         android:layout_below="@id/past_wrap_title">
 
         <LinearLayout
@@ -31,18 +32,26 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_1"
+                    android:textSize="35sp"
+                    android:textStyle="bold"/>
+
                 <ImageView
                     android:id="@+id/albumCover1"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:contentDescription="Album cover image" />
+                    android:contentDescription="@string/album_cover_image" />
 
                 <TextView
                     android:id="@+id/songTitle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:text="Top Song Name"
+                    android:layout_marginStart="16dp"
+                    android:textSize="25sp"
+                    android:text="@string/temp_top_song_name"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
             </LinearLayout>
 
@@ -50,20 +59,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_2"
+                    android:textSize="35sp"
+                    android:textStyle="bold"/>
 
                 <ImageView
                     android:id="@+id/albumCover2"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:contentDescription="Album cover image" />
+                    android:contentDescription="@string/album_cover_image" />
 
                 <TextView
                     android:id="@+id/songTitle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:text="Top Song Name"
+                    android:layout_marginStart="16dp"
+                    android:textSize="25sp"
+                    android:text="@string/temp_top_song_name"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
             </LinearLayout>
 
@@ -71,20 +89,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_3"
+                    android:textSize="35sp"
+                    android:textStyle="bold"/>
 
                 <ImageView
                     android:id="@+id/albumCover3"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:contentDescription="Album cover image" />
+                    android:contentDescription="@string/album_cover_image" />
 
                 <TextView
                     android:id="@+id/songTitle3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:text="Top Song Name"
+                    android:layout_marginStart="16dp"
+                    android:text="@string/temp_top_song_name"
+                    android:textSize="25sp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
             </LinearLayout>
 
@@ -92,20 +119,29 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_4"
+                    android:textSize="35sp"
+                    android:textStyle="bold"/>
 
                 <ImageView
                     android:id="@+id/albumCover4"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:contentDescription="Album cover image" />
+                    android:contentDescription="@string/album_cover_image" />
 
                 <TextView
                     android:id="@+id/songTitle4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:text="Top Song Name"
+                    android:layout_marginStart="16dp"
+                    android:textSize="25sp"
+                    android:text="@string/temp_top_song_name"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
             </LinearLayout>
 
@@ -113,23 +149,31 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="center_vertical">
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/_5"
+                    android:textSize="35sp"
+                    android:textStyle="bold"/>
 
                 <ImageView
                     android:id="@+id/albumCover5"
                     android:layout_width="64dp"
                     android:layout_height="64dp"
-                    android:contentDescription="Album cover image" />
+                    android:contentDescription="@string/album_cover_image" />
 
                 <TextView
                     android:id="@+id/songTitle5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:text="Top Song Name"
+                    android:layout_marginStart="16dp"
+                    android:textSize="25sp"
+                    android:text="@string/temp_top_song_name"
                     android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
             </LinearLayout>
-
         </LinearLayout>
     </ScrollView>
 
