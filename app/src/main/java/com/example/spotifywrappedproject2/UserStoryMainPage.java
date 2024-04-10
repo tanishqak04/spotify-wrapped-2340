@@ -15,6 +15,7 @@ import java.util.List;
 public class UserStoryMainPage extends AppCompatActivity {
     private boolean userInteracted = false;
     private Spinner spinner;
+    private String accessToken;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,12 +24,12 @@ public class UserStoryMainPage extends AppCompatActivity {
         //Initialize the spinner
         spinner = findViewById(R.id.spinner2);
 
-        String accessToken = getIntent().getStringExtra("accessToken");
+        accessToken = getIntent().getStringExtra("accessToken");
 
         List<String> pageOptions = new ArrayList<>();
         pageOptions.add("Select an option"); // Default option
         pageOptions.add("Past Wrapped");
-        pageOptions.add("User Story 2");
+        pageOptions.add("Discover New Artists");
         //pageOptions.add("User Story 3");
         //pageOptions.add("User Story 4");
         // add more user stories if needed
@@ -75,8 +76,9 @@ public class UserStoryMainPage extends AppCompatActivity {
         Intent myIntent = null;
         if ("Past Wrapped".equals(page)) {
             myIntent = new Intent(UserStoryMainPage.this, PastWrappedScreen.class);
-        } else if ("User Story 2".equals(page)) {
-            // myIntent = new Intent(UserStoryMainPage.this, UserStory2.class);
+        } else if ("Discover New Artists".equals(page)) {
+            myIntent = new Intent(UserStoryMainPage.this, DiscoverNewArtists.class);
+            myIntent.putExtra("accessToken", accessToken);
         }
         // Add more else if statements for other pages
 

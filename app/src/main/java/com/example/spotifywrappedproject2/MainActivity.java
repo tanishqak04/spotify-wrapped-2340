@@ -1,5 +1,7 @@
 package com.example.spotifywrappedproject2;
 
+import static com.example.spotifywrappedproject2.SpotifyLogin.AUTH_TOKEN_REQUEST_CODE;
+
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
@@ -77,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void getToken() {
         final AuthorizationRequest request = getAuthenticationRequest(AuthorizationResponse.Type.TOKEN);
-        //AuthorizationClient.openLoginActivity(MainActivity.this, AUTH_TOKEN_REQUEST_CODE, request);
+        AuthorizationClient.openLoginActivity(MainActivity.this, AUTH_TOKEN_REQUEST_CODE, request);
     }
 
     /**
@@ -91,26 +93,41 @@ public class MainActivity extends AppCompatActivity {
         //AuthorizationClient.openLoginActivity(MainActivity.this, AUTH_CODE_REQUEST_CODE, request);
     }
 
-
     /**
      * When the app leaves this activity to momentarily get a token/code, this function
      * fetches the result of that external activity to get the response from Spotify
      */
-    //@Override
-    //protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        //super.onActivityResult(requestCode, resultCode, data);
-        //final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
 
-        // Check which request code is present (if any)
-        //if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
-            //mAccessToken = response.getAccessToken();
-            //setTextAsync(mAccessToken, tokenTextView);
+        if (AUTH_TOKEN_REQUEST_CODE == requestCode) {
+            mAccessToken = response.getAccessToken();
 
-        //} //else if (AUTH_CODE_REQUEST_CODE == requestCode) {
-            //mAccessCode = response.getCode();
-            //setTextAsync(mAccessCode, codeTextView);
-        //}
-    //}
+            // Check if the token is received successfully
+            if (mAccessToken != null && !mAccessToken.isEmpty()) {
+                Log.d("MainActivity", "Got Access Token: " + mAccessToken);
+                tokenTextView.setText("Token: " + mAccessToken); // Display the token on the UI for debug
+
+                // Start UserStoryMainPage activity and pass the token
+                Intent intent = new Intent(MainActivity.this, UserStoryMainPage.class);
+                intent.putExtra("accessToken", mAccessToken);
+                startActivity(intent);
+            } else {
+                // Handle error, show message to the user
+                String error = response.getError();
+                if (error != null) {
+                    Log.e("MainActivity", "Auth error: " + error);
+                    Toast.makeText(this, "Auth error: " + error, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(this, "Token was not received", Toast.LENGTH_SHORT).show();
+                }
+            }
+        } else {
+            Toast.makeText(this, "Authorization response was null", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     /**
      * Get user profile

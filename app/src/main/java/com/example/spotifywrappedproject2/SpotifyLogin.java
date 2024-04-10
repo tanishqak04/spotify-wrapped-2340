@@ -92,8 +92,6 @@ public class SpotifyLogin extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         final AuthorizationResponse response = AuthorizationClient.getResponse(resultCode, data);
 
-
-
         // Check which request code is present (if any)
         if (response != null && AUTH_TOKEN_REQUEST_CODE == requestCode) {
             if (response.getError() != null) {
@@ -105,10 +103,15 @@ public class SpotifyLogin extends AppCompatActivity {
                 Log.d("SpotifyLogin", "Authorization Response: " + response);
                 Log.e("SpotifyLogin", "Access Token: " + mAccessToken);
                 // setTextAsync(mAccessToken, tokenTextView);
+                if (mAccessToken != null && !mAccessToken.isEmpty()) {
+                    // Now we are sure we have the token, we can start the DiscoverNewArtists activity
+                    Intent intent = new Intent(SpotifyLogin.this, UserStoryMainPage.class);
+                    intent.putExtra("accessToken", mAccessToken); // Make sure to use the same key
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(this, "Failed to get access token", Toast.LENGTH_SHORT).show();
+                }
             }
-        } else if (AUTH_CODE_REQUEST_CODE == requestCode) {
-            mAccessCode = response.getCode();
-            //setTextAsync(mAccessCode, codeTextView);
         }
     }
 
@@ -173,7 +176,7 @@ public class SpotifyLogin extends AppCompatActivity {
     private AuthorizationRequest getAuthenticationRequest(AuthorizationResponse.Type type) {
         return new AuthorizationRequest.Builder(CLIENT_ID, type, getRedirectUri().toString())
                 .setShowDialog(false)
-                .setScopes(new String[] { "user-read-email" }) // <--- Change the scope of your requested token here
+                .setScopes(new String[]{"user-read-email", "user-top-read"}) // <--- Change the scope of your requested token here
                 .setCampaign("your-campaign-token")
                 .build();
     }
