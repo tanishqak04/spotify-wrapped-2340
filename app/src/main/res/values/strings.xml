@@ -15,4 +15,5 @@
     <string name="_4">4:</string>
     <string name="_5">5:</string>
     <string name="spotify_wrapped_title">Your Spotify Wrapped</string>
+    <string name="album_cover_image">Album cover image</string>
 </resources>
