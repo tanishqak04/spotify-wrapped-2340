@@ -80,10 +80,9 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:id="@+id/notificationIcon"
-                        android:layout_height="40dp"
-                        android:src=""
+                        android:layout_height="48dp"
                         android:background="@drawable/round_back_notif"
-                        android:padding="12dp"/>
+                        android:padding="48dp"/>
                     <TextView
                         android:layout_marginStart="20dp"
                         android:layout_width="wrap_content"
@@ -116,10 +115,9 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:id="@+id/nightMode"
-                        android:layout_height="40dp"
-                        android:src=""
+                        android:layout_height="48dp"
                         android:background="@drawable/round_back_night"
-                        android:padding="12dp"/>
+                        android:padding="48dp"/>
                     <TextView
                         android:layout_marginStart="20dp"
                         android:layout_width="wrap_content"
@@ -154,10 +152,9 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:id="@+id/deleteAccount"
-                        android:layout_height="40dp"
-                        android:src=""
+                        android:layout_height="48dp"
                         android:background="@drawable/round_back_security"
-                        android:padding="12dp"/>
+                        android:padding="48dp"/>
                     <TextView
                         android:layout_marginStart="20dp"
                         android:layout_width="wrap_content"
@@ -191,10 +188,9 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:id="@+id/updateAccount"
-                        android:layout_height="40dp"
-                        android:src=""
+                        android:layout_height="48dp"
                         android:background="@drawable/round_back_1020"
-                        android:padding="12dp"/>
+                        android:padding="48dp"/>
                     <TextView
                         android:layout_marginStart="20dp"
                         android:layout_width="wrap_content"
@@ -206,10 +202,11 @@
                         android:layout_toEndOf="@+id/updateAccount"
                         />
 
-                    <ImageView
+
+                    <Button
+                        android:id="@+id/updateacc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/profile_right_nav"
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"/>
 
