@@ -35,7 +35,7 @@ public class ChristmasWrap extends AppCompatActivity {
         API api = new API(accessToken);
 
 
-        api.getTopTracks(new Callback() {
+        api.getTopTracks10(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e("Wrapped", "Network error: ", e);
