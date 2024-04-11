@@ -92,6 +92,9 @@ public class Register extends AppCompatActivity {
 
 
                                 } else {
+                                    if (password.length() < 6) {
+                                        Toast.makeText(Register.this, "Password is less then 6 Characters.", Toast.LENGTH_SHORT).show();
+                                    }
                                     // If sign in fails, displays a toast
                                     Toast.makeText(Register.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
