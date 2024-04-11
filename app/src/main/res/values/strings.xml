@@ -26,4 +26,5 @@
     <string name="_1_week_wrapped">1 Week Wrapped</string>
     <string name="_1_year_wrapped">1 Year Wrapped</string>
     <string name="all_time_wrapped">All Time Wrapped</string>
+    <string name="sign_out">Sign Out</string>
 </resources>
