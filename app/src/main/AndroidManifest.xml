@@ -65,6 +65,10 @@
             android:name=".Login"
             android:exported="false" />
         <activity
+            android:name=".UpdateAcc"
+            android:exported="false"
+            />
+        <activity
             android:name=".Register"
             android:exported="true">
             <intent-filter>
