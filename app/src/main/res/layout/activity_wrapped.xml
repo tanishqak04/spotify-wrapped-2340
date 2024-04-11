@@ -219,4 +219,11 @@
         android:layout_marginBottom="25dp"
         android:text="Export" />
 
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="326dp"
+        android:text="@string/back" />
 </RelativeLayout>

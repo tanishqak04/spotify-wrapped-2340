@@ -46,6 +46,12 @@ public class SpotifyLogin extends AppCompatActivity {
         setContentView(R.layout.activity_spotify_login);
         Button buttonLogin = (Button) findViewById(R.id.spotifyLogBtn);
 
+        if (mAccessToken != null) {
+            Intent intent = new Intent(SpotifyLogin.this, UserStoryMainPage.class);
+            intent.putExtra("accessToken", mAccessToken);
+            startActivity(intent);
+        }
+
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 getToken();
