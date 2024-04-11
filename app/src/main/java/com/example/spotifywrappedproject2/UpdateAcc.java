@@ -25,6 +25,7 @@ public class UpdateAcc extends AppCompatActivity {
     String email, password;
     Button submitButton;
     FirebaseAuth mAuth;
+    Class<?> className;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,15 @@ public class UpdateAcc extends AppCompatActivity {
         submitButton = findViewById(R.id.updateButton);
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        Intent intent = getIntent();
+        if (intent != null) {
+            try {
+                className = Class.forName(intent.getStringExtra("sourceClass"));
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -58,6 +68,9 @@ public class UpdateAcc extends AppCompatActivity {
                                                 if (task.isSuccessful()) {
                                                     Toast.makeText(UpdateAcc.this, "Password Updated",
                                                             Toast.LENGTH_SHORT).show();
+                                                    Intent intent = new Intent(UpdateAcc.this, Settings.class);
+                                                    intent.putExtra("sourceClass", className.getName());
+                                                    startActivity(intent);
                                                 }
                                             }
                                         });
