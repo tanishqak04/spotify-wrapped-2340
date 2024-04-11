@@ -93,7 +93,7 @@ public class Wrapped extends AppCompatActivity {
                 saveImage();
             }
         });
-        api.getTopTracks(new Callback() {
+        api.getTopTracks10(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e("Wrapped", "Network error: ", e);

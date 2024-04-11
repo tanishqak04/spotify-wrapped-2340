@@ -34,7 +34,16 @@ public class API {
         client.newCall(request).enqueue(callback);
     }
 
-    public void getTopTracks(Callback callback) {
+    public void getTopTracks10(Callback callback) {
+        Request request = new Request.Builder()
+                .url("https://api.spotify.com/v1/me/top/tracks?limit=10") // Adjust limit as needed
+                .addHeader("Authorization", "Bearer " + accessToken)
+                .build();
+
+        client.newCall(request).enqueue(callback);
+    }
+
+    public void getTopTracks5(Callback callback) {
         Request request = new Request.Builder()
                 .url("https://api.spotify.com/v1/me/top/tracks?limit=10") // Adjust limit as needed
                 .addHeader("Authorization", "Bearer " + accessToken)

@@ -63,7 +63,7 @@ public class DiscoverNewArtists extends AppCompatActivity {
     }
 
     private void fetchUserTopTracks() {
-        api.getTopTracks(new Callback() {
+        api.getTopTracks5(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
                 // This is a network failure
