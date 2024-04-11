@@ -3,16 +3,26 @@ package com.example.spotifywrappedproject2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class Wrapped extends AppCompatActivity {
+    private RelativeLayout relativeLayout;
     private boolean userInteracted = false;
     private Spinner spinner;
     @Override
@@ -51,6 +61,57 @@ public class Wrapped extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
         });
+
+        // export
+
+        relativeLayout = findViewById(R.id.myLayout);
+        Button exportButton = (Button) findViewById(R.id.exportButton);
+
+        exportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("heya");
+                saveImage();
+            }
+        });
+    }
+
+    private void saveImage() {
+        relativeLayout.setDrawingCacheEnabled(true);
+        relativeLayout.buildDrawingCache();
+        relativeLayout.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+        Bitmap bitmap = relativeLayout.getDrawingCache();
+
+        save(bitmap);
+
+    }
+
+    private void save(Bitmap bitmap) {
+
+        String root = Environment.getExternalStorageDirectory().getAbsolutePath();
+        File file = new File(root + "/Download");
+        String fileName = "img" + Calendar.getInstance().get(Calendar.MILLISECOND) + ".jpg";
+        File myFile = new File(file, fileName);
+
+        if (myFile.exists()) {
+            myFile.delete();
+        }
+
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(myFile);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+            fileOutputStream.flush();
+            fileOutputStream.close();
+
+            Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
+            relativeLayout.setDrawingCacheEnabled(false);
+
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            Toast.makeText(this, "Error : " + e.toString(), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 
     @Override
