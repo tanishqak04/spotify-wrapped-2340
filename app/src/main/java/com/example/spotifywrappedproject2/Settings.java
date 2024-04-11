@@ -15,12 +15,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.google.android.gms.tasks.Task;
 import com.google.android.gms.tasks.OnCompleteListener;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -34,6 +37,7 @@ public class Settings extends AppCompatActivity {
         Button updateAcc = findViewById(R.id.updateacc);
         ImageButton back = findViewById(R.id.backArrow);
         ImageButton delAcc = findViewById(R.id.delButton);
+        Button signOut = findViewById(R.id.signout);
 
         Intent intent = getIntent();
         if (intent != null) {
@@ -80,6 +84,31 @@ public class Settings extends AppCompatActivity {
                             .setNegativeButton("No", null)
                             .show();
 
+            }
+        });
+
+        signOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                signOut();
+
+            }
+        });
+
+    }
+
+    public void signOut() {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        auth.signOut();
+        auth.addAuthStateListener(new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user == null) {
+                    Toast.makeText(getApplicationContext(), "Sign-out successful", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Settings.this, Register.class);
+                    startActivity(intent);
+                }
             }
         });
     }
