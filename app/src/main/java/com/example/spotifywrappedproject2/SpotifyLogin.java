@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,6 +46,7 @@ public class SpotifyLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spotify_login);
         Button buttonLogin = (Button) findViewById(R.id.spotifyLogBtn);
+        ImageButton buttonSetting = (ImageButton) findViewById(R.id.settingsGear);
 
         if (mAccessToken != null) {
             Intent intent = new Intent(SpotifyLogin.this, UserStoryMainPage.class);
@@ -63,6 +65,15 @@ public class SpotifyLogin extends AppCompatActivity {
                     intent.putExtra("accessToken", mAccessToken);
                     startActivity(intent);
                 }
+            }
+        });
+
+        buttonSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SpotifyLogin.this, Settings.class);
+                intent.putExtra("sourceClass", SpotifyLogin.class.getName());
+                startActivity(intent);
             }
         });
     }
