@@ -20,7 +20,7 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class Wrapped extends AppCompatActivity {
+public class HalloweenWrap extends AppCompatActivity {
     private String accessToken;
 
     private int[] imageViewIds = {R.id.albumCover1, R.id.albumCover2, R.id.albumCover3, R.id.albumCover4, R.id.albumCover5};
@@ -39,7 +39,7 @@ public class Wrapped extends AppCompatActivity {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.e("Wrapped", "Network error: ", e);
-                runOnUiThread(() -> Toast.makeText(Wrapped.this, "Network error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
+                runOnUiThread(() -> Toast.makeText(HalloweenWrap.this, "Network error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
             }
 
             @Override
@@ -47,7 +47,7 @@ public class Wrapped extends AppCompatActivity {
                 final String responseBody = response.body().string();
                 Log.d("Wrapped", "API Response: " + responseBody);
                 if (!response.isSuccessful()) {
-                    runOnUiThread(() -> Toast.makeText(Wrapped.this, "Error fetching top tracks: " + response.message(), Toast.LENGTH_SHORT).show());
+                    runOnUiThread(() -> Toast.makeText(HalloweenWrap.this, "Error fetching top tracks: " + response.message(), Toast.LENGTH_SHORT).show());
                     return;
                 }
 
@@ -68,7 +68,7 @@ public class Wrapped extends AppCompatActivity {
                                 TextView textView = findViewById(textViewIds[i]);
 
                                 // Use an image loading library like Glide to load the image
-                                Glide.with(Wrapped.this).load(imageUrl).into(imageView);
+                                Glide.with(HalloweenWrap.this).load(imageUrl).into(imageView);
 
                                 textView.setText(trackName);
                             }
