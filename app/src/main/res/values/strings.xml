@@ -15,5 +15,11 @@
     <string name="_4">4:</string>
     <string name="_5">5:</string>
     <string name="spotify_wrapped_title">Your Spotify Wrapped</string>
+    <string name="your_2023_spotify_wrapped">Your 2023 Spotify Wrapped</string>
+    <string name="your_2022_spotify_wrapped">Your 2022 Spotify Wrapped</string>
+    <string name="your_2021_spotify_wrapped">Your 2021 Spotify Wrapped</string>
+    <string name="your_2020_spotify_wrapped">Your 2020 Spotify Wrapped</string>
+    <string name="your_2019_spotify_wrapped">Your 2019 Spotify Wrapped</string>
+    <string name="your_2018_spotify_wrapped">Your 2018 Spotify Wrapped</string>
     <string name="album_cover_image">Album cover image</string>
 </resources>
