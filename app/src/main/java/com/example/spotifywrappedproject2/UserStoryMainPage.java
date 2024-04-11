@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import java.text.SimpleDateFormat;
@@ -29,6 +30,8 @@ public class UserStoryMainPage extends AppCompatActivity {
 
         //Initialize the spinner
         spinner = findViewById(R.id.spinner2);
+
+        ImageButton buttonSetting = (ImageButton) findViewById(R.id.settingsGear);
 
         accessToken = getIntent().getStringExtra("accessToken");
 
@@ -59,6 +62,15 @@ public class UserStoryMainPage extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
+        });
+
+        buttonSetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UserStoryMainPage.this, Settings.class);
+                intent.putExtra("sourceClass", UserStoryMainPage.class.getName());
+                startActivity(intent);
+            }
         });
     }
 

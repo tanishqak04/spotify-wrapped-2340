@@ -51,6 +51,7 @@ public class Settings extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(Settings.this, UpdateAcc.class);
+                myIntent.putExtra("sourceClass", className.getName());
                 if (myIntent != null) {
                     startActivity(myIntent);
                 }
@@ -77,7 +78,18 @@ public class Settings extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                                     if (user != null) {
-                                        user.delete();
+                                        user.delete()
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        if (task.isSuccessful()) {
+                                                            Intent intent = new Intent(Settings.this, Register.class);
+                                                            startActivity(intent);
+                                                        } else {
+
+                                                        }
+                                                    }
+                                                });
                                     }
                                 }
                             })
