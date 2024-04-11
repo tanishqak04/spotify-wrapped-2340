@@ -2,15 +2,19 @@ package com.example.spotifywrappedproject2;
 
 import static com.example.spotifywrappedproject2.SpotifyLogin.AUTH_TOKEN_REQUEST_CODE;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.Firebase;
+import com.google.firebase.FirebaseApp;
 import com.spotify.sdk.android.auth.AuthorizationClient;
 import com.spotify.sdk.android.auth.AuthorizationRequest;
 import com.spotify.sdk.android.auth.AuthorizationResponse;
@@ -215,4 +219,22 @@ public class MainActivity extends AppCompatActivity {
         cancelCall();
         super.onDestroy();
     }
+    /*public boolean onOptionsSelect(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+          //  case R.id.logoutButton:
+           //     doLogoutUser();
+           //     break;
+            case R.id.deleteAccount:
+                doDeleteCurrentUser();
+                break;
+        }
+    }
+
+    private void doDeleteCurrentUser() {
+        FirebaseApp
+                .getInstance()
+                .
+    }*/
+
+
 }
