@@ -160,7 +160,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:background="#00FFFFFF"
-                        android:src="@drawable/profile_right_nav"
+                        android:src="@android:drawable/ic_delete"
                         app:srcCompat="@android:drawable/ic_delete" />
 
                 </RelativeLayout>

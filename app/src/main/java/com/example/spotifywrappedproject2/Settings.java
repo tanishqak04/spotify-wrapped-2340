@@ -1,6 +1,8 @@
 package com.example.spotifywrappedproject2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.Navigation;
 
 import android.app.AlertDialog;
 import android.content.ComponentName;
@@ -13,6 +15,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.OnCompleteListener;
+import androidx.annotation.NonNull;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Settings extends AppCompatActivity {
 
@@ -55,17 +65,21 @@ public class Settings extends AppCompatActivity {
         delAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new  AlertDialog.Builder(Settings.this)
-                        .setMessage("Are you sure you want to delete your account?")
-                        .setCancelable(false)
-                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                finish();
-                            }
-                        })
-                        .setNegativeButton("No", null)
-                        .show();
+                    new  AlertDialog.Builder(Settings.this)
+                            .setMessage("Are you sure you want to delete your account?")
+                            .setCancelable(false)
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                    if (user != null) {
+                                        user.delete();
+                                    }
+                                }
+                            })
+                            .setNegativeButton("No", null)
+                            .show();
+
             }
         });
     }
