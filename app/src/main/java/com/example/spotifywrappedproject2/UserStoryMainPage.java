@@ -9,13 +9,19 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class UserStoryMainPage extends AppCompatActivity {
     private boolean userInteracted = false;
     private Spinner spinner;
     private String accessToken;
+    private Calendar calendar;
+    private SimpleDateFormat simpleDateFormat;
+    private String date;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,6 +80,10 @@ public class UserStoryMainPage extends AppCompatActivity {
     private void navigateToPage(String page) {
         if (!userInteracted) return;
 
+        calendar = Calendar.getInstance();
+        simpleDateFormat = new SimpleDateFormat("dd-MM");
+        date = simpleDateFormat.format(calendar.getTime());
+
         Intent myIntent = null;
         if ("Past Wrapped".equals(page)) {
             myIntent = new Intent(UserStoryMainPage.this, PastWrappedScreen.class);
@@ -81,8 +91,19 @@ public class UserStoryMainPage extends AppCompatActivity {
             myIntent = new Intent(UserStoryMainPage.this, DiscoverNewArtists.class);
             myIntent.putExtra("accessToken", accessToken);
         } else if ("Wrapped".equals(page)) {
-            myIntent = new Intent(UserStoryMainPage.this, Wrapped.class);
-            myIntent.putExtra("accessToken", accessToken);
+            if (date.equals("31-10")) {
+                myIntent = new Intent(UserStoryMainPage.this, HalloweenWrap.class);
+                myIntent.putExtra("accessToken", accessToken);
+            } else if (date.equals("25-12")) {
+                myIntent = new Intent(UserStoryMainPage.this, ChristmasWrap.class);
+                myIntent.putExtra("accessToken", accessToken);
+            } else if (date.equals("31-03")) {
+                myIntent = new Intent(UserStoryMainPage.this, EasterWrap.class);
+                myIntent.putExtra("accessToken", accessToken);
+            } else {
+                myIntent = new Intent(UserStoryMainPage.this, Wrapped.class);
+                myIntent.putExtra("accessToken", accessToken);
+            }
         }
         // Add more else if statements for other pages
 
