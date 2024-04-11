@@ -29,7 +29,7 @@ public class Wrapped extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_christmas_wrap);
+        setContentView(R.layout.activity_easter_wrap);
 
         accessToken = getIntent().getStringExtra("accessToken");
         API api = new API(accessToken);
