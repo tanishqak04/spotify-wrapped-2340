@@ -29,7 +29,7 @@
             android:name=".OneWeekWrapped"
             android:exported="false" />
         <activity
-            android:name=".easter_wrap"
+            android:name=".EasterWrap"
             android:exported="false" />
         <activity
             android:name=".ChristmasWrap"
