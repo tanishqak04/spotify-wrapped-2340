@@ -6,4 +6,17 @@
     </style>
 
     <style name="Theme.SpotifyWrappedProject2" parent="Base.Theme.SpotifyWrappedProject2" />
+
+    <style name="nightModeSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/night_mode</item>
+        <item name="colorSwitchThumbNormal">#FFFFFF</item>
+        <item name="android:foreground">#99FFFFFF</item>
+    </style>
+
+    <style name="notificationsSwitch" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/notifications</item>
+        <item name="colorSwitchThumbNormal">#FFFFFF</item>
+        <item name="android:foreground">#99FFFFFF</item>
+    </style>
+
 </resources>
