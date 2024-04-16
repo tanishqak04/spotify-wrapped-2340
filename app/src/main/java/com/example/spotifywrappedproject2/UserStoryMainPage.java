@@ -36,8 +36,8 @@ public class UserStoryMainPage extends AppCompatActivity {
         pageOptions.add("Select an option"); // Default option
         pageOptions.add("Past Wrapped");
         pageOptions.add("Discover New Artists");
-        pageOptions.add("Wrapped");
-        //pageOptions.add("User Story 3");
+        pageOptions.add("Top Songs");
+        pageOptions.add("Top Artists");
         //pageOptions.add("User Story 4");
         // add more user stories if needed
 
@@ -90,7 +90,7 @@ public class UserStoryMainPage extends AppCompatActivity {
         } else if ("Discover New Artists".equals(page)) {
             myIntent = new Intent(UserStoryMainPage.this, DiscoverNewArtists.class);
             myIntent.putExtra("accessToken", accessToken);
-        } else if ("Wrapped".equals(page)) {
+        } else if ("Top Songs".equals(page)) {
             if (date.equals("31-10")) {
                 myIntent = new Intent(UserStoryMainPage.this, HalloweenWrap.class);
                 myIntent.putExtra("accessToken", accessToken);
@@ -104,6 +104,9 @@ public class UserStoryMainPage extends AppCompatActivity {
                 myIntent = new Intent(UserStoryMainPage.this, Wrapped.class);
                 myIntent.putExtra("accessToken", accessToken);
             }
+        } else if ("Top Artists".equals(page)) {
+            myIntent = new Intent(UserStoryMainPage.this, TopArtist.class);
+            myIntent.putExtra("accessToken", accessToken);
         }
         // Add more else if statements for other pages
 
