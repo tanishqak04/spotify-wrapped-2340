@@ -124,8 +124,8 @@ public class TopArtist extends AppCompatActivity {
                         try {
                             for (int i = 0; i < artists.length() && i < imageViewIds.length; i++) {
                                 JSONObject track = artists.getJSONObject(i);
-                                JSONObject album = track.getJSONObject("album");
-                                JSONArray images = album.getJSONArray("images");
+                                //JSONObject album = track.getJSONObject("album");
+                                JSONArray images = track.getJSONArray("images");
                                 String imageUrl = images.getJSONObject(0).getString("url");
                                 String trackName = track.getString("name");
 
