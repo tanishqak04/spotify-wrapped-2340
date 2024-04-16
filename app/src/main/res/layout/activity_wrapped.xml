@@ -225,7 +225,7 @@
         android:layout_alignParentBottom="true"
         android:backgroundTint="#505050"
         android:layout_marginBottom="12dp"/>
-x`
+
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"
