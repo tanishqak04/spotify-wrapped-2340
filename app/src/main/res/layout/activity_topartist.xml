@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FDB0C0"
+    android:background="#BE2ED6"
     android:id="@+id/myLayout"
     tools:context=".Wrapped">
 
@@ -11,7 +11,7 @@
         android:id="@+id/past_title_view"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@drawable/wrapped_title"
+        android:background="@drawable/artistwrap_title"
         />
     <Spinner
         android:layout_marginTop="5dp"
@@ -48,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/_1"
                     android:textSize="50sp"
+                    android:textColor="@color/black"
                     android:textStyle="bold|italic"
                     android:layout_gravity="center_horizontal"/>
                 <ImageView
@@ -64,6 +65,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="@string/top_artist_name"
                     android:textSize="25sp"
+                    android:textColor="@color/black"
                     android:maxLines="@integer/material_motion_duration_long_1"
                     android:textStyle="bold|italic"
                     android:paddingTop="20dp"/>
@@ -81,6 +83,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/_2"
                     android:textSize="50sp"
+                    android:textColor="@color/black"
                     android:textStyle="bold|italic"
                     android:layout_gravity="center_horizontal">
                 </TextView>
@@ -99,6 +102,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="@string/top_artist_name"
                     android:textSize="25sp"
+                    android:textColor="@color/black"
                     android:maxLines="@integer/material_motion_duration_long_1"
                     android:textStyle="bold|italic"
                     android:paddingTop="20dp"/>
@@ -116,6 +120,7 @@
                     android:text="@string/_3"
                     android:textSize="50sp"
                     android:textStyle="bold|italic"
+                    android:textColor="@color/black"
                     android:layout_gravity="center_horizontal"/>
 
                 <ImageView
@@ -132,6 +137,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="@string/top_artist_name"
                     android:textSize="25sp"
+                    android:textColor="@color/black"
                     android:textStyle="bold|italic"
                     android:paddingTop="20dp"/>
             </LinearLayout>
@@ -148,6 +154,7 @@
                     android:text="@string/_4"
                     android:textSize="50sp"
                     android:textStyle="bold|italic"
+                    android:textColor="@color/black"
                     android:layout_gravity="center_horizontal"/>
 
                 <ImageView
@@ -164,6 +171,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="@string/top_artist_name"
                     android:textSize="25sp"
+                    android:textColor="@color/black"
                     android:maxLines="@integer/material_motion_duration_long_1"
                     android:textStyle="bold|italic"
                     android:paddingTop="20dp"/>
@@ -181,6 +189,7 @@
                     android:text="@string/_5"
                     android:textSize="50sp"
                     android:textStyle="bold|italic"
+                    android:textColor="@color/black"
                     android:layout_gravity="center_horizontal"/>
 
                 <ImageView
@@ -197,6 +206,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="@string/top_artist_name"
                     android:textSize="25sp"
+                    android:textColor="@color/black"
                     android:maxLines="@integer/material_motion_duration_long_1"
                     android:textStyle="bold|italic"
                     android:paddingTop="20dp"/>
@@ -224,7 +234,7 @@
         android:text="@string/export"
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:backgroundTint="#505050"
+        android:backgroundTint="#000000"
         android:layout_marginBottom="12dp"/>
     <Button
         android:id="@+id/backButton"
@@ -233,7 +243,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        android:backgroundTint="#505050"
+        android:backgroundTint="#000000"
         android:textSize="13sp"
         android:text="@string/back" />
 </RelativeLayout>
