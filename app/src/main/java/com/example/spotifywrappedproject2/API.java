@@ -64,9 +64,9 @@ public class API {
         client.newCall(request).enqueue(callback);
     }
 
-    public void shortTerm(Callback callback) {
+    public void getTopTracks(String timeRange, int limit, Callback callback) {
         Request request = new Request.Builder()
-                .url("https://api.spotify.com/v1/me/top/artists?offset=20&limit=20&time_range=short_term&locale=en-US%2Cen%3Bq%3D0.9") // Adjust limit as needed
+                .url("https://api.spotify.com/v1/me/top/tracks?time_range=" + timeRange + "&limit=" + limit)
                 .addHeader("Authorization", "Bearer " + accessToken)
                 .build();
 
