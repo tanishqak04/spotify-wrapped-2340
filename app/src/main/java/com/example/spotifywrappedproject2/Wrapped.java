@@ -86,7 +86,6 @@ public class Wrapped extends AppCompatActivity {
         pageOptions.add("1 Week Wrapped");
         pageOptions.add("1 Month Wrapped");
         pageOptions.add("1 Year Wrapped");
-        pageOptions.add("All Time Wrapped");
 
         //Set up the adapter for the spinner
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, pageOptions);
@@ -286,8 +285,6 @@ public class Wrapped extends AppCompatActivity {
             myIntent = new Intent(Wrapped.this, OneMonthWrapped.class);
         } else if ("1 Year Wrapped".equals(page)) {
             myIntent = new Intent(Wrapped.this, YearWrapped.class);
-        } else if ("All Time Wrapped".equals(page)) {
-            myIntent = new Intent(Wrapped.this, AllTimeWrapped.class);
         }
         // Add more else if statements for other pages
 
