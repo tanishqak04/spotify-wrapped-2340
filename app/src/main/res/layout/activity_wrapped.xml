@@ -55,7 +55,7 @@
             <TextView
                 android:id="@+id/songTitle1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/temp_top_song_name"
                 android:textSize="25sp"
@@ -90,7 +90,7 @@
             <TextView
                 android:id="@+id/songTitle2"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/temp_top_song_name"
                 android:textSize="25sp"
@@ -123,7 +123,7 @@
             <TextView
                 android:id="@+id/songTitle3"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/temp_top_song_name"
                 android:textSize="25sp"

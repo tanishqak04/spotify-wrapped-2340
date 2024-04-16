@@ -52,6 +52,15 @@ public class API {
         client.newCall(request).enqueue(callback);
     }
 
+    public void getTopArtists5(Callback callback) {
+        Request request = new Request.Builder()
+                .url("https://api.spotify.com/v1/me/top/artists?limit=5") // Adjust limit as needed
+                .addHeader("Authorization", "Bearer " + accessToken)
+                .build();
+
+        client.newCall(request).enqueue(callback);
+    }
+
     public void getRecommendations(List<String> seedTracks, Callback callback) {
         HttpUrl.Builder urlBuilder = HttpUrl.parse("https://api.spotify.com/v1/recommendations").newBuilder();
         urlBuilder.addQueryParameter("seed_tracks", TextUtils.join(",", seedTracks));

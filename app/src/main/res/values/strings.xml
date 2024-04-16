@@ -28,4 +28,6 @@
     <string name="all_time_wrapped">All Time Wrapped</string>
     <string name="sign_out">Sign Out</string>
     <string name="none">None</string>
+    <string name="export">Export</string>
+    <string name="top_artist_name">Top Artist Name</string>
 </resources>
