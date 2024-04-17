@@ -26,6 +26,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -59,9 +60,25 @@ public class PastWrappedScreen extends AppCompatActivity {
                             int count = 0;
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Map<String, Object> map = document.getData();
-                                map1 = map;
+                                if (map1 == null) {
+                                    map1 = map;
+                                } else if (map2 == null) {
+                                    map2 = map;
+                                    ArrayList<String> str2 = (ArrayList<String>) map2.get("urls");
+                                    System.out.println(str2.get(3));
+                                } else if (map3 == null) {
+                                    map3 = map;
+                                } else if (map4 == null) {
+                                    map4 = map;
+                                } else if (map5 == null) {
+                                    map5 = map;
+                                } else if (map6 == null) {
+                                    map6 = map;
+                                }
                                 ArrayList<String> strs = (ArrayList<String>) map1.get("songs");
+
                                 System.out.println(strs.get(0));
+
                             }
                         } else {
                             Toast.makeText(PastWrappedScreen.this, "No past Wraps Available", Toast.LENGTH_SHORT).show();
