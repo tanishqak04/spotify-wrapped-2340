@@ -45,6 +45,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -103,9 +104,11 @@ public class Wrapped extends AppCompatActivity {
 
                 // Convert byte array to Blob
                 Blob blob = Blob.fromBytes(data);
+                //creating a random docID so multiple images can be saved.
+                String documentId = UUID.randomUUID().toString();
 
                 // Create a reference to store the image in Firestore (you can change the collection name and document ID)
-                DocumentReference docRef = db.collection("Wrapped").document("wrappedSong");
+                DocumentReference docRef = db.collection("Wrapped").document(documentId);
 
                 // Upload the byte array to Firestore
                 docRef.set(new HashMap<String, Object>() {
