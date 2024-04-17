@@ -1,11 +1,13 @@
 package com.example.spotifywrappedproject2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,6 +26,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.Blob;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -31,10 +34,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -55,6 +60,7 @@ public class Wrapped extends AppCompatActivity {
     private Spinner spinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wrapped);
 
@@ -80,26 +86,44 @@ public class Wrapped extends AppCompatActivity {
 
         Button backButton = findViewById(R.id.backButton);
         Button saveButton = findViewById(R.id.saveButton);
-
+        //Saving image to Firestore
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Map<String, Object> user = new HashMap<>();
-                user.put("albums", imageViewIds);
-                user.put("songs", textViewIds);
+                // Enable drawing cache
+                relativeLayout.setDrawingCacheEnabled(true);
+                relativeLayout.buildDrawingCache();
+                relativeLayout.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+                Bitmap bitmap = relativeLayout.getDrawingCache();
 
-                db.collection("users")
-                        .add(user)
-                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                // Convert bitmap to byte array
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+                byte[] data = baos.toByteArray();
+
+                // Convert byte array to Blob
+                Blob blob = Blob.fromBytes(data);
+
+                // Create a reference to store the image in Firestore (you can change the collection name and document ID)
+                DocumentReference docRef = db.collection("Wrapped").document("wrappedSong");
+
+                // Upload the byte array to Firestore
+                docRef.set(new HashMap<String, Object>() {
+                            {
+                                put("imageData", blob); // Store the image data as Blob
+                            }
+                        })
+                        .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
-                            public void onSuccess(DocumentReference documentReference) {
-
+                            public void onSuccess(Void aVoid) {
+                                Toast.makeText(Wrapped.this, "Saved!", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
-                            public void onFailure(Exception e) {
-                                Toast.makeText(Wrapped.this, "Failed to save.", Toast.LENGTH_SHORT).show();
+                            public void onFailure(@NonNull Exception exception) {
+                                // Handle unsuccessful uploads
+                                Toast.makeText(Wrapped.this, "Failed to Save", Toast.LENGTH_SHORT).show();
                             }
                         });
             }
@@ -186,6 +210,7 @@ public class Wrapped extends AppCompatActivity {
             }
         });
     }
+
 
     private void saveImage() {
         relativeLayout.setDrawingCacheEnabled(true);
