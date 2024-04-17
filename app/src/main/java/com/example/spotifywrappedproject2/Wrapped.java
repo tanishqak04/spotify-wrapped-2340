@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -56,6 +57,10 @@ public class Wrapped extends AppCompatActivity {
 
     private int[] imageViewIds = {R.id.albumCover1, R.id.albumCover2, R.id.albumCover3, R.id.albumCover4, R.id.albumCover5};
     private int[] textViewIds = {R.id.songTitle1, R.id.songTitle2, R.id.songTitle3, R.id.songTitle4, R.id.songTitle5};
+
+    private ArrayList<String> songs = new ArrayList<>();
+    private ArrayList<String> urls = new ArrayList<>();
+
     private RelativeLayout relativeLayout;
     private boolean userInteracted = false;
     private Spinner spinner;
@@ -87,48 +92,35 @@ public class Wrapped extends AppCompatActivity {
 
         Button backButton = findViewById(R.id.backButton);
         Button saveButton = findViewById(R.id.saveButton);
+
         //Saving image to Firestore
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Enable drawing cache
-                relativeLayout.setDrawingCacheEnabled(true);
-                relativeLayout.buildDrawingCache();
-                relativeLayout.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
-                Bitmap bitmap = relativeLayout.getDrawingCache();
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-                // Convert bitmap to byte array
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-                byte[] data = baos.toByteArray();
 
-                // Convert byte array to Blob
-                Blob blob = Blob.fromBytes(data);
-                //creating a random docID so multiple images can be saved.
-                String documentId = UUID.randomUUID().toString();
+                // Create a new Wrapped with a first and last name
+                Map<String, Object> wrap = new HashMap<>();
+                wrap.put("songs", songs);
+                wrap.put("urls", urls);
 
-                // Create a reference to store the image in Firestore (you can change the collection name and document ID)
-                DocumentReference docRef = db.collection("Wrapped").document(documentId);
-
-                // Upload the byte array to Firestore
-                docRef.set(new HashMap<String, Object>() {
-                            {
-                                put("imageData", blob); // Store the image data as Blob
-                            }
-                        })
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
+                // Add a new document with a generated ID
+                db.collection("wrapped")
+                        .add(wrap)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
-                            public void onSuccess(Void aVoid) {
+                            public void onSuccess(DocumentReference documentReference) {
                                 Toast.makeText(Wrapped.this, "Saved!", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
-                            public void onFailure(@NonNull Exception exception) {
-                                // Handle unsuccessful uploads
+                            public void onFailure(@NonNull Exception e) {
                                 Toast.makeText(Wrapped.this, "Failed to Save", Toast.LENGTH_SHORT).show();
                             }
                         });
+
             }
         });
         backButton.setOnClickListener(new View.OnClickListener() {
@@ -195,10 +187,14 @@ public class Wrapped extends AppCompatActivity {
                                 String imageUrl = images.getJSONObject(0).getString("url");
                                 String trackName = track.getString("name");
 
+                                urls.add(imageUrl);
+                                songs.add(trackName);
+
                                 ImageView imageView = findViewById(imageViewIds[i]);
                                 TextView textView = findViewById(textViewIds[i]);
 
                                 // Use an image loading library like Glide to load the image
+
                                 Glide.with(Wrapped.this).load(imageUrl).into(imageView);
 
                                 textView.setText(trackName);
