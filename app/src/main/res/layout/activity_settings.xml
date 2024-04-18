@@ -129,14 +129,21 @@
                         android:textStyle="bold"
                         android:layout_toEndOf="@+id/nightMode"
                         />
-                    <androidx.appcompat.widget.SwitchCompat
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_centerVertical="true"
-                        android:switchMinWidth="50dp"
-                        android:theme="@style/nightModeSwitch"
-                        />
+                    <Switch
+                        android:id="@+id/toggle"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_alignParentEnd="true" />
+                    
+<!--                    <androidx.appcompat.widget.SwitchCompat-->
+<!--                        android:id="@+id/toggle"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentEnd="true"-->
+<!--                        android:layout_centerVertical="true"-->
+<!--                        android:switchMinWidth="50dp"-->
+<!--                        android:theme="@style/nightModeSwitch"-->
+<!--                        />-->
                     
                 </RelativeLayout>
 
