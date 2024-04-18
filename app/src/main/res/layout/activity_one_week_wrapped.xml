@@ -71,7 +71,7 @@
                 android:layout_gravity="center_horizontal"
                 android:text="@string/_2"
                 android:textSize="50sp"
-                android:textStyle="bold|italic"></TextView>
+                android:textStyle="bold|italic"/>
 
             <ImageView
                 android:id="@+id/albumCover2"

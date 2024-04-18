@@ -12,7 +12,7 @@
         android:id="@+id/past_title_view"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@drawable/wrapped_title" />
+        android:background="@drawable/wrapped_title"/>
 
     <Spinner
         android:id="@+id/spinner"
@@ -20,7 +20,7 @@
         android:layout_height="48dp"
         android:layout_below="@id/past_title_view"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,14 +43,14 @@
                 android:layout_gravity="center_horizontal"
                 android:text="@string/_1"
                 android:textSize="50sp"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"/>
 
             <ImageView
                 android:id="@+id/albumCover1"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/musicalnote_foreground" />
+                android:src="@drawable/musicalnote_foreground"/>
 
             <TextView
                 android:id="@+id/songTitle1"
@@ -62,7 +62,7 @@
                 android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="25sp"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"/>
 
         </LinearLayout>
 
@@ -78,14 +78,14 @@
                 android:layout_gravity="center_horizontal"
                 android:text="@string/_2"
                 android:textSize="50sp"
-                android:textStyle="bold|italic"></TextView>
+                android:textStyle="bold|italic"/>
 
             <ImageView
                 android:id="@+id/albumCover2"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/musicalnote_foreground" />
+                android:src="@drawable/musicalnote_foreground"/>
 
             <TextView
                 android:id="@+id/songTitle2"
@@ -97,7 +97,7 @@
                 android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="25sp"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"/>
         </LinearLayout>
 
         <LinearLayout
@@ -112,14 +112,14 @@
                 android:layout_gravity="center_horizontal"
                 android:text="@string/_3"
                 android:textSize="50sp"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"/>
 
             <ImageView
                 android:id="@+id/albumCover3"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/musicalnote_foreground" />
+                android:src="@drawable/musicalnote_foreground"/>
 
             <TextView
                 android:id="@+id/songTitle3"
@@ -130,7 +130,7 @@
                 android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="25sp"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"/>
         </LinearLayout>
 
         <LinearLayout
@@ -145,14 +145,14 @@
                 android:layout_gravity="center_horizontal"
                 android:text="@string/_4"
                 android:textSize="50sp"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"/>
 
             <ImageView
                 android:id="@+id/albumCover4"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/musicalnote_foreground" />
+                android:src="@drawable/musicalnote_foreground"/>
 
             <TextView
                 android:id="@+id/songTitle4"
@@ -164,7 +164,7 @@
                 android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="25sp"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"/>
         </LinearLayout>
 
         <LinearLayout
@@ -179,14 +179,14 @@
                 android:layout_gravity="center_horizontal"
                 android:text="@string/_5"
                 android:textSize="50sp"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"/>
 
             <ImageView
                 android:id="@+id/albumCover5"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center_horizontal"
-                android:src="@drawable/musicalnote_foreground" />
+                android:src="@drawable/musicalnote_foreground"/>
 
             <TextView
                 android:id="@+id/songTitle5"
@@ -198,7 +198,7 @@
                 android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="25sp"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold|italic"/>
         </LinearLayout>
 
 
@@ -224,7 +224,7 @@
         android:layout_marginBottom="12dp"
         android:backgroundTint="#505050"
         android:text="@string/export"
-        android:textSize="14sp" />
+        android:textSize="14sp"/>
 
     <Button
         android:id="@+id/backButton"
@@ -238,7 +238,7 @@
         android:layout_toStartOf="@+id/exportButton"
         android:backgroundTint="#505050"
         android:text="@string/back"
-        android:textSize="14sp" />
+        android:textSize="14sp"/>
 
     <Button
         android:id="@+id/saveButton"
@@ -252,5 +252,5 @@
         android:layout_toEndOf="@+id/exportButton"
         android:backgroundTint="#505050"
         android:text="@string/save"
-        android:textSize="14sp" />
+        android:textSize="14sp"/>
 </RelativeLayout>
