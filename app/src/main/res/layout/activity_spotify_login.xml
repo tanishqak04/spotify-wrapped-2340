@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="268dp"
         android:text="Welcome!"
+        android:textColor="#FA7CA0"
         android:textSize="96px"
         app:layout_constraintBottom_toTopOf="@+id/spotifyLogBtn"
         app:layout_constraintEnd_toEndOf="parent"
