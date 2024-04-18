@@ -49,13 +49,14 @@
                     android:src="@drawable/musicalnote_foreground" />
 
                 <TextView
+                    android:id="@+id/date1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/wrapped_23"
+                    android:text="@string/none"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -87,13 +88,14 @@
                     android:src="@drawable/musicalnote_foreground" />
 
                 <TextView
+                    android:id="@+id/date2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/wrapped_22"
+                    android:text="@string/none"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -125,13 +127,14 @@
                     android:src="@drawable/musicalnote_foreground" />
 
                 <TextView
+                    android:id="@+id/date3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/wrapped_21"
+                    android:text="@string/none"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -163,13 +166,14 @@
                     android:src="@drawable/musicalnote_foreground" />
 
                 <TextView
+                    android:id="@+id/date4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/wrapped_20"
+                    android:text="@string/none"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -201,13 +205,14 @@
                     android:src="@drawable/musicalnote_foreground" />
 
                 <TextView
+                    android:id="@+id/date5"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/wrapped_19"
+                    android:text="@string/none"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -242,13 +247,14 @@
                     android:src="@drawable/musicalnote_foreground" />
 
                 <TextView
+                    android:id="@+id/date6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
-                    android:text="@string/wrapped_18"
+                    android:text="@string/none"
                     android:textColor="@color/black"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
 
             </LinearLayout>
 

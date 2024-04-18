@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.SystemClock;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -39,6 +40,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -104,6 +107,12 @@ public class Wrapped extends AppCompatActivity {
                 Map<String, Object> wrap = new HashMap<>();
                 wrap.put("songs", songs);
                 wrap.put("urls", urls);
+                LocalDate currDate = LocalDate.now();
+                int year = currDate.getYear();
+                int month = currDate.getMonthValue();
+                int day = currDate.getDayOfMonth();
+                String dateString = String.format("%02d-%02d-%04d", month, day, year);
+                wrap.put("date", dateString);
 
                 // Add a new document with a generated ID
                 db.collection("wrapped")

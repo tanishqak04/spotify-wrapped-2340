@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -28,6 +29,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -41,6 +43,7 @@ public class PastWrappedScreen extends AppCompatActivity {
     Map<String, Object> map5;
     Map<String, Object> map6;
 
+    Map<String, Object>[] arr = new HashMap[6];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,28 +60,46 @@ public class PastWrappedScreen extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            int count = 0;
                             for (QueryDocumentSnapshot document : task.getResult()) {
                                 Map<String, Object> map = document.getData();
                                 if (map1 == null) {
                                     map1 = map;
+                                    arr[0] = map1;
                                 } else if (map2 == null) {
                                     map2 = map;
-                                    ArrayList<String> str2 = (ArrayList<String>) map2.get("urls");
-                                    System.out.println(str2.get(3));
+                                    arr[1] = map2;
                                 } else if (map3 == null) {
                                     map3 = map;
+                                    arr[3] = map3;
                                 } else if (map4 == null) {
                                     map4 = map;
+                                    arr[4] = map4;
                                 } else if (map5 == null) {
                                     map5 = map;
+                                    arr[5] = map5;
                                 } else if (map6 == null) {
                                     map6 = map;
+                                    arr[6] = map6;
                                 }
-                                ArrayList<String> strs = (ArrayList<String>) map1.get("songs");
+                            }
+                            int count = 1;
+                            for(Map map : arr) {
+                                if (map != null) {
+                                    String date = (String) map.get("date");
+                                    //System.out.println(date);
 
-                                System.out.println(strs.get(0));
+                                    String viewIdString = "date" + count;
+                                    //System.out.println(viewIdString);
+                                    int viewId = getResources().getIdentifier(viewIdString, "id", getPackageName());
 
+                                    if (viewId != 0) {
+                                        TextView textView = findViewById(viewId);
+                                        textView.setText(date);
+                                    } else {
+                                        throw new RuntimeException("Broken date Loop :(");
+                                    }
+                                }
+                                count++;
                             }
                         } else {
                             Toast.makeText(PastWrappedScreen.this, "No past Wraps Available", Toast.LENGTH_SHORT).show();
@@ -87,4 +108,7 @@ public class PastWrappedScreen extends AppCompatActivity {
                 });
 
     }
+
+
+    
 }
