@@ -17,6 +17,15 @@
         android:theme="@style/Theme.SpotifyWrappedProject2"
         tools:targetApi="31">
         <activity
+            android:name=".oneYearArtist"
+            android:exported="false" />
+        <activity
+            android:name=".oneMonthArtist"
+            android:exported="false" />
+        <activity
+            android:name=".oneWeekArtist"
+            android:exported="false" />
+        <activity
             android:name=".TopArtist"
             android:exported="false" />
         <activity
@@ -69,8 +78,7 @@
             android:exported="false" />
         <activity
             android:name=".UpdateAcc"
-            android:exported="false"
-            />
+            android:exported="false" />
         <activity
             android:name=".Register"
             android:exported="true">

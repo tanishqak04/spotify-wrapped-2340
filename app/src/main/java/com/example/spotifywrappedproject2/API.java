@@ -81,4 +81,13 @@ public class API {
 
         client.newCall(request).enqueue(callback);
     }
+
+    public void getTopArtists(String timeRange, int limit, Callback callback) {
+        Request request = new Request.Builder()
+                .url("https://api.spotify.com/v1/me/top/artists?time_range=" + timeRange + "&limit=" + limit)
+                .addHeader("Authorization", "Bearer " + accessToken)
+                .build();
+
+        client.newCall(request).enqueue(callback);
+    }
 }

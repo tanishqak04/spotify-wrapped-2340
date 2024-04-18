@@ -206,13 +206,14 @@ public class TopArtist extends AppCompatActivity {
 
         Intent myIntent = null;
         if ("1 Week Wrapped".equals(page)) {
-            myIntent = new Intent(TopArtist.this, OneWeekWrapped.class);
+            myIntent = new Intent(TopArtist.this, oneWeekArtist.class);
+            myIntent.putExtra("accessToken", accessToken);
         } else if ("1 Month Wrapped".equals(page)) {
-            myIntent = new Intent(TopArtist.this, OneMonthWrapped.class);
+            myIntent = new Intent(TopArtist.this, oneYearArtist.class);
+            myIntent.putExtra("accessToken", accessToken);
         } else if ("1 Year Wrapped".equals(page)) {
-            myIntent = new Intent(TopArtist.this, YearWrapped.class);
-        } else if ("All Time Wrapped".equals(page)) {
-            System.out.println("removeThisPage");
+            myIntent = new Intent(TopArtist.this, oneYearArtist.class);
+            myIntent.putExtra("accessToken", accessToken);
         }
         // Add more else if statements for other pages
 
