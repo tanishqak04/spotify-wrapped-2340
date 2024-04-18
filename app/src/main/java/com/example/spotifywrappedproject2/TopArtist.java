@@ -58,8 +58,6 @@ public class TopArtist extends AppCompatActivity {
         pageOptions.add("1 Week Wrapped");
         pageOptions.add("1 Month Wrapped");
         pageOptions.add("1 Year Wrapped");
-        pageOptions.add("All Time Wrapped");
-
         //Set up the adapter for the spinner
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, pageOptions);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -209,7 +207,7 @@ public class TopArtist extends AppCompatActivity {
             myIntent = new Intent(TopArtist.this, oneWeekArtist.class);
             myIntent.putExtra("accessToken", accessToken);
         } else if ("1 Month Wrapped".equals(page)) {
-            myIntent = new Intent(TopArtist.this, oneYearArtist.class);
+            myIntent = new Intent(TopArtist.this, oneMonthArtist.class);
             myIntent.putExtra("accessToken", accessToken);
         } else if ("1 Year Wrapped".equals(page)) {
             myIntent = new Intent(TopArtist.this, oneYearArtist.class);
