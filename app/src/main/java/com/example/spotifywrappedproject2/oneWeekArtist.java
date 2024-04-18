@@ -39,7 +39,7 @@ public class oneWeekArtist extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_one_week_wrapped);
+        setContentView(R.layout.activity_one_week_artist);
 
         // Initialize Views
         initViews();
@@ -61,10 +61,11 @@ public class oneWeekArtist extends AppCompatActivity {
 
     private void initViews() {
         for (int i = 0; i < imageViews.length; i++) {
-            imageViews[i] = findViewById(getResources().getIdentifier("albumCover" + (i + 1), "id", getPackageName()));
-            textViews[i] = findViewById(getResources().getIdentifier("songTitle" + (i + 1), "id", getPackageName()));
+            imageViews[i] = findViewById(getResources().getIdentifier("artistPic" + (i + 1), "id", getPackageName()));
+            textViews[i] = findViewById(getResources().getIdentifier("artistName" + (i + 1), "id", getPackageName()));
         }
     }
+
 
     private void fetchAndDisplayTopArtists() {
         // Only fetch "short_term" top tracks
@@ -93,12 +94,12 @@ public class oneWeekArtist extends AppCompatActivity {
             runOnUiThread(() -> {
                 try {
                     for (int i = 0; i < items.length() && i < imageViews.length; i++) {
-                        JSONObject track = items.getJSONObject(i);
-                        String trackName = track.getString("name");
-                        String imageUrl = track.getJSONObject("album").getJSONArray("images").getJSONObject(0).getString("url");
+                        JSONObject artist = items.getJSONObject(i);
+                        String artistName = artist.getString("name");
+                        String imageUrl = artist.getJSONArray("images").getJSONObject(0).getString("url");
 
                         Glide.with(oneWeekArtist.this).load(imageUrl).into(imageViews[i]);
-                        textViews[i].setText(trackName);
+                        textViews[i].setText(artistName);
                     }
                 } catch (JSONException e) {
                     Toast.makeText(oneWeekArtist.this, "JSON parsing error: " + e.getMessage(), Toast.LENGTH_SHORT).show();
