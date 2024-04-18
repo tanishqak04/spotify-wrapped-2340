@@ -6,8 +6,10 @@ import androidx.navigation.Navigation;
 
 import android.app.AlertDialog;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,8 +28,18 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import android.widget.Switch;
+
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
+
 
 public class Settings extends AppCompatActivity {
+
+    Switch toggle;
+    boolean nightTog;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     Class<?> className;
     @Override
@@ -39,6 +51,31 @@ public class Settings extends AppCompatActivity {
         ImageButton delAcc = findViewById(R.id.delButton);
         Button signOut = findViewById(R.id.signout);
 
+        getSupportActionBar().hide();
+
+        toggle = findViewById(R.id.toggle);
+        sharedPreferences = getSharedPreferences("MODE", Context.MODE_PRIVATE);
+        nightTog = sharedPreferences.getBoolean("night", false);
+
+        if (nightTog) {
+            toggle.setChecked(true);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        toggle.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                if (nightTog) {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    editor = sharedPreferences.edit();
+                    editor.putBoolean("night", false);
+                } else {
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    editor = sharedPreferences.edit();
+                    editor.putBoolean("night", true);
+                }
+                editor.apply();
+            }
+        });
+
         Intent intent = getIntent();
         if (intent != null) {
             try {
@@ -47,7 +84,8 @@ public class Settings extends AppCompatActivity {
                 throw new RuntimeException(e);
             }
         }
-        updateAcc.setOnClickListener(new View.OnClickListener() {
+        updateAcc.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(Settings.this, UpdateAcc.class);
@@ -124,6 +162,5 @@ public class Settings extends AppCompatActivity {
             }
         });
     }
-
 
 }
