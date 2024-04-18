@@ -210,10 +210,13 @@ public class Wrapped extends AppCompatActivity {
         Intent myIntent = null;
         if ("1 Week Wrapped".equals(page)) {
             myIntent = new Intent(Wrapped.this, OneWeekWrapped.class);
+            myIntent.putExtra("accessToken", accessToken);
         } else if ("1 Month Wrapped".equals(page)) {
             myIntent = new Intent(Wrapped.this, OneMonthWrapped.class);
+            myIntent.putExtra("accessToken", accessToken);
         } else if ("1 Year Wrapped".equals(page)) {
             myIntent = new Intent(Wrapped.this, YearWrapped.class);
+            myIntent.putExtra("accessToken", accessToken);
         }
         // Add more else if statements for other pages
 
