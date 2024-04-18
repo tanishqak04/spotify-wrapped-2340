@@ -11,168 +11,177 @@
         android:id="@+id/past_title_view"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@drawable/wrapped_title"
-        />
+        android:background="@drawable/wrapped_title" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginRight="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="170dp"
+        android:layout_marginRight="24dp"
         android:layout_marginBottom="100dp"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="6dp">
+            android:layout_margin="6dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/_1"
                 android:textSize="55sp"
-                android:textStyle="bold|italic"
-                android:layout_gravity="center_horizontal"/>
+                android:textStyle="bold|italic" />
+
             <ImageView
+                android:id="@+id/albumCover1"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/musicalnote_foreground"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/musicalnote_foreground" />
 
             <TextView
+                android:id="@+id/songTitle1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="30sp"
-                android:textStyle="bold|italic"
-                android:paddingTop="20dp"/>
+                android:textStyle="bold|italic" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="6dp">
+            android:layout_margin="6dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/_2"
                 android:textSize="55sp"
-                android:textStyle="bold|italic"
-                android:layout_gravity="center_horizontal">
-            </TextView>
+                android:textStyle="bold|italic"></TextView>
 
             <ImageView
+                android:id="@+id/albumCover2"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/musicalnote_foreground"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/musicalnote_foreground" />
 
             <TextView
+                android:id="@+id/songTitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="30sp"
-                android:textStyle="bold|italic"
-                android:paddingTop="20dp"/>
+                android:textStyle="bold|italic" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="6dp">
+            android:layout_margin="6dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/_3"
                 android:textSize="55sp"
-                android:textStyle="bold|italic"
-                android:layout_gravity="center_horizontal"/>
+                android:textStyle="bold|italic" />
 
             <ImageView
+                android:id="@+id/albumCover3"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/musicalnote_foreground"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/musicalnote_foreground" />
 
             <TextView
+                android:id="@+id/songTitle3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="30sp"
-                android:textStyle="bold|italic"
-                android:paddingTop="20dp"/>
+                android:textStyle="bold|italic" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="6dp">
+            android:layout_margin="6dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/_4"
                 android:textSize="55sp"
-                android:textStyle="bold|italic"
-                android:layout_gravity="center_horizontal"/>
+                android:textStyle="bold|italic" />
 
             <ImageView
+                android:id="@+id/albumCover4"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:src="@drawable/musicalnote_foreground"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/musicalnote_foreground" />
 
             <TextView
+                android:id="@+id/songTitle4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="30sp"
-                android:textStyle="bold|italic"
-                android:paddingTop="20dp"/>
+                android:textStyle="bold|italic" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_margin="6dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/_5"
-                android:textSize="55sp"
-                android:textStyle="bold|italic"
-                android:layout_gravity="center_horizontal"/>
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:src="@drawable/musicalnote_foreground"
-                android:layout_gravity="center_horizontal"/>
+            android:layout_margin="6dp"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:text="@string/_5"
+                android:textSize="55sp"
+                android:textStyle="bold|italic" />
+
+            <ImageView
+                android:id="@+id/albumCover5"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/musicalnote_foreground" />
+
+            <TextView
+                android:id="@+id/songTitle5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="30sp"
-                android:textStyle="bold|italic"
-                android:paddingTop="20dp"/>
+                android:textStyle="bold|italic" />
         </LinearLayout>
 
 
@@ -182,12 +191,13 @@
         android:id="@+id/past_wrap_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/your_2022_spotify_wrapped"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/your_2018_spotify_wrapped"
         android:textColor="@color/white"
         android:textSize="32sp"
-        android:textStyle="bold|italic"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"/>
+        android:textStyle="bold|italic" />
+
     <Button
         android:id="@+id/backButton"
         android:layout_width="wrap_content"

@@ -35,22 +35,22 @@
             android:name=".ChristmasWrap"
             android:exported="false" />
         <activity
-            android:name=".wrapped18"
+            android:name=".wrapped6"
             android:exported="false" />
         <activity
-            android:name=".wrapped19"
+            android:name=".wrapped5"
             android:exported="false" />
         <activity
-            android:name=".wrapped20"
+            android:name=".wrapped4"
             android:exported="false" />
         <activity
-            android:name=".wrapped21"
+            android:name=".wrapped3"
             android:exported="false" />
         <activity
-            android:name=".wrapped22"
+            android:name=".wrapped2"
             android:exported="false" />
         <activity
-            android:name=".wrapped23"
+            android:name=".wrapped1"
             android:exported="false" />
         <activity
             android:name=".DiscoverNewArtists"

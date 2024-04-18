@@ -5,34 +5,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.firestore.Blob;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 public class PastWrappedScreen extends AppCompatActivity {
 
@@ -49,6 +36,71 @@ public class PastWrappedScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_past_wrapped_screen);
+
+
+        Button backButton = findViewById(R.id.backButton);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        CardView cardViewWrap23 = (CardView) findViewById(R.id.wrap1);
+        cardViewWrap23.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PastWrappedScreen.this, wrapped1.class);
+                intent.putExtra("map", (Serializable) map1);
+                startActivity(intent);
+            }
+        });
+
+        CardView cardViewWrap22 = (CardView) findViewById(R.id.wrap2);
+        cardViewWrap22.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PastWrappedScreen.this, wrapped2.class);
+                intent.putExtra("map", (Serializable) map2);
+                startActivity(intent);
+            }
+        });
+        CardView cardViewWrap21 = (CardView) findViewById(R.id.wrap3);
+        cardViewWrap21.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PastWrappedScreen.this, wrapped3.class);
+                intent.putExtra("map", (Serializable) map3);
+                startActivity(intent);
+            }
+        });
+        CardView cardViewWrap20 = (CardView) findViewById(R.id.wrap4);
+        cardViewWrap20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PastWrappedScreen.this, wrapped4.class);
+                intent.putExtra("map", (Serializable) map4);
+                startActivity(intent);
+            }
+        });
+        CardView cardViewWrap19 = (CardView) findViewById(R.id.wrap5);
+        cardViewWrap19.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PastWrappedScreen.this, wrapped5.class);
+                intent.putExtra("map", (Serializable) map5);
+                startActivity(intent);
+            }
+        });
+        CardView cardViewWrap18 = (CardView) findViewById(R.id.wrap6);
+        cardViewWrap18.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(PastWrappedScreen.this, wrapped6.class);
+                intent.putExtra("map", (Serializable) map6);
+                startActivity(intent);
+            }
+        });
 
         // Initialize Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
