@@ -114,8 +114,11 @@ public class Wrapped extends AppCompatActivity {
                 String dateString = String.format("%02d-%02d-%04d", month, day, year);
                 wrap.put("date", dateString);
 
+                String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
                 // Add a new document with a generated ID
-                db.collection("wrapped")
+                db.collection("users").document(userID).collection("wrapped")
                         .add(wrap)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override

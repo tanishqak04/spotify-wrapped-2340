@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -52,7 +53,9 @@ public class PastWrappedScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(PastWrappedScreen.this, wrapped1.class);
                 intent.putExtra("map", (Serializable) map1);
-                startActivity(intent);
+                if (map1 != null) {
+                    startActivity(intent);
+                }
             }
         });
 
@@ -62,7 +65,9 @@ public class PastWrappedScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(PastWrappedScreen.this, wrapped2.class);
                 intent.putExtra("map", (Serializable) map2);
-                startActivity(intent);
+                if (map2 != null) {
+                    startActivity(intent);
+                }
             }
         });
         CardView cardViewWrap21 = (CardView) findViewById(R.id.wrap3);
@@ -71,7 +76,9 @@ public class PastWrappedScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(PastWrappedScreen.this, wrapped3.class);
                 intent.putExtra("map", (Serializable) map3);
-                startActivity(intent);
+                if (map3 != null) {
+                    startActivity(intent);
+                }
             }
         });
         CardView cardViewWrap20 = (CardView) findViewById(R.id.wrap4);
@@ -80,7 +87,9 @@ public class PastWrappedScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(PastWrappedScreen.this, wrapped4.class);
                 intent.putExtra("map", (Serializable) map4);
-                startActivity(intent);
+                if (map4 != null) {
+                    startActivity(intent);
+                }
             }
         });
         CardView cardViewWrap19 = (CardView) findViewById(R.id.wrap5);
@@ -89,7 +98,9 @@ public class PastWrappedScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(PastWrappedScreen.this, wrapped5.class);
                 intent.putExtra("map", (Serializable) map5);
-                startActivity(intent);
+                if (map5 != null) {
+                    startActivity(intent);
+                }
             }
         });
         CardView cardViewWrap18 = (CardView) findViewById(R.id.wrap6);
@@ -98,15 +109,18 @@ public class PastWrappedScreen extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(PastWrappedScreen.this, wrapped6.class);
                 intent.putExtra("map", (Serializable) map6);
-                startActivity(intent);
+                if (map6 != null) {
+                    startActivity(intent);
+                }
             }
         });
 
         // Initialize Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         // Reference to the "Wrapped" collection
-        db.collection("wrapped")
+        db.collection("users").document(userID).collection("wrapped")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -122,16 +136,16 @@ public class PastWrappedScreen extends AppCompatActivity {
                                     arr[1] = map2;
                                 } else if (map3 == null) {
                                     map3 = map;
-                                    arr[3] = map3;
+                                    arr[2] = map3;
                                 } else if (map4 == null) {
                                     map4 = map;
-                                    arr[4] = map4;
+                                    arr[3] = map4;
                                 } else if (map5 == null) {
                                     map5 = map;
-                                    arr[5] = map5;
+                                    arr[4] = map5;
                                 } else if (map6 == null) {
                                     map6 = map;
-                                    arr[6] = map6;
+                                    arr[5] = map6;
                                 }
                             }
                             int count = 1;

@@ -80,6 +80,7 @@
                 android:src="@drawable/musicalnote_foreground" />
 
             <TextView
+                android:id="@+id/songTitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"

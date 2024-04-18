@@ -34,6 +34,10 @@ public class wrapped1 extends AppCompatActivity {
 
         if (receivedMap != null) {
             String date = (String) receivedMap.get("date");
+            TextView header = findViewById(R.id.past_wrap_title);
+            String headText = "Your " + date + " Wrapped";
+            header.setText(headText);
+
             ArrayList<String> songs = (ArrayList<String>) receivedMap.get("songs");
             ArrayList<String> urls = (ArrayList<String>) receivedMap.get("urls");
 
