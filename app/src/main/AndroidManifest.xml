@@ -20,9 +20,6 @@
             android:name=".TopArtist"
             android:exported="false" />
         <activity
-            android:name=".AllTimeWrapped"
-            android:exported="false" />
-        <activity
             android:name=".YearWrapped"
             android:exported="false" />
         <activity

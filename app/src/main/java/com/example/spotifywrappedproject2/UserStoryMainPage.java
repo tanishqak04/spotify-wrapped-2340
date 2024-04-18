@@ -82,15 +82,15 @@ public class UserStoryMainPage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // TODO
-                navigateToPage("");
+                navigateToPage("Top Artists");
             }
         });
 
         ImageButton tracks = findViewById(R.id.dbtracks);
-        artists.setOnClickListener(new View.OnClickListener() {
+        tracks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                navigateToPage("Wrapped");
+                navigateToPage("Top Songs");
             }
         });
 
