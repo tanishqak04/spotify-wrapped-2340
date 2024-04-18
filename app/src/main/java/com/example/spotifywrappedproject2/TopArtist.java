@@ -212,7 +212,7 @@ public class TopArtist extends AppCompatActivity {
         } else if ("1 Year Wrapped".equals(page)) {
             myIntent = new Intent(TopArtist.this, YearWrapped.class);
         } else if ("All Time Wrapped".equals(page)) {
-            //myIntent = new Intent(TopArtist.this, AllTimeWrapped.class);
+            System.out.println("removeThisPage");
         }
         // Add more else if statements for other pages
 
