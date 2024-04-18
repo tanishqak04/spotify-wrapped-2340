@@ -34,7 +34,7 @@ public class Settings extends AppCompatActivity {
         Button updateAcc = findViewById(R.id.updateacc);
         ImageButton back = findViewById(R.id.backArrow);
 
-        getSupportActionBar().hide();
+       // getSupportActionBar().hide();
 
         toggle = findViewById(R.id.toggle);
         sharedPreferences = getSharedPreferences("MODE", Context.MODE_PRIVATE);
@@ -59,14 +59,14 @@ public class Settings extends AppCompatActivity {
             }
         });
 
-        Intent intent = getIntent();
-        if (intent != null) {
-            try {
-                className = Class.forName(intent.getStringExtra("sourceClass"));
-            } catch (ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            }
-        }
+//        Intent intent = getIntent();
+//        if (intent != null) {
+//            try {
+//                className = Class.forName(intent.getStringExtra("sourceClass"));
+//            } catch (ClassNotFoundException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
         updateAcc.setOnClickListener(new View.OnClickListener()
         {
             @Override

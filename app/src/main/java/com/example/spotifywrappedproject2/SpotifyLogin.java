@@ -72,7 +72,7 @@ public class SpotifyLogin extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SpotifyLogin.this, Settings.class);
-                intent.putExtra("sourceClass", SpotifyLogin.class.getName());
+                intent.putExtra("accessToken", mAccessToken);
                 startActivity(intent);
             }
         });
