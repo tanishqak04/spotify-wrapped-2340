@@ -11,8 +11,8 @@
         android:id="@+id/past_title_view"
         android:layout_width="match_parent"
         android:layout_height="120dp"
-        android:background="@drawable/wrapped_title"
-        />
+        android:background="@drawable/wrapped_title" />
+
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
