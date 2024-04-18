@@ -1,19 +1,31 @@
 package com.example.spotifywrappedproject2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.Spinner;
+import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Response;
 
 public class UserStoryMainPage extends AppCompatActivity {
     private boolean userInteracted = false;
@@ -23,10 +35,80 @@ public class UserStoryMainPage extends AppCompatActivity {
     private SimpleDateFormat simpleDateFormat;
     private String date;
 
+
+    // code for getting username
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_story_main_page);
+        TextView welcomeTextView = findViewById(R.id.greeting);
+
+        accessToken = getIntent().getStringExtra("accessToken");
+        API api = new API(accessToken);
+
+        api.getProf(new Callback() {
+            @Override
+            public void onFailure(@NonNull Call call, @NonNull IOException e) {
+                Log.e("tag", "msg", e);
+            }
+
+            @Override
+            public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
+                if (!response.isSuccessful()) {
+                    throw new IOException("Unexpected code " + response);
+                } else {
+                    String responseData = response.body().string();
+                    try {
+                        JSONObject jsonObject = new JSONObject(responseData);
+                        final String displayName = jsonObject.getString("display_name");
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                System.out.println(displayName);
+                                welcomeTextView.setText("Welcome, " + displayName);
+                            }
+                        });
+                    } catch (JSONException e) {
+                        Log.e("JSON Parsing Error", "Error parsing JSON", e);
+                    }
+                }
+            }
+        });
+
+        // image buttons
+
+        ImageButton artists = findViewById(R.id.dbartists);
+        artists.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // TODO
+                navigateToPage("");
+            }
+        });
+
+        ImageButton tracks = findViewById(R.id.dbtracks);
+        artists.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToPage("Wrapped");
+            }
+        });
+
+        ImageButton past = findViewById(R.id.dbpast);
+        past.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToPage("Past Wrapped");
+            }
+        });
+
+        ImageButton discover = findViewById(R.id.dbdiscover);
+        discover.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigateToPage("Discover New Artists");
+            }
+        });
 
         //Initialize the spinner
         spinner = findViewById(R.id.spinner2);
@@ -57,6 +139,7 @@ public class UserStoryMainPage extends AppCompatActivity {
                 if (userInteracted && position > 0) {
                     String selectedPage = pageOptions.get(position);
                     navigateToPage(selectedPage);
+
                 }
             }
 
@@ -86,8 +169,6 @@ public class UserStoryMainPage extends AppCompatActivity {
         super.onUserInteraction();
         userInteracted = true;
     }
-
-
 
     private void navigateToPage(String page) {
         if (!userInteracted) return;
@@ -127,4 +208,7 @@ public class UserStoryMainPage extends AppCompatActivity {
         }
 
     }
+
+
+
 }
