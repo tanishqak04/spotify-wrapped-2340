@@ -30,4 +30,8 @@
     <string name="none">None</string>
     <string name="export">Export</string>
     <string name="top_artist_name">Top Artist Name</string>
+    <string name="save">Save</string>
+    <string name="one_month_wrapped">One Month Wrapped</string>
+    <string name="one_week_wrapped">One Week Wrapped</string>
+    <string name="one_year_wrapped">One Year Wrapped</string>
 </resources>
