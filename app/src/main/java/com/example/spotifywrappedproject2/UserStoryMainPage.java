@@ -151,7 +151,6 @@ public class UserStoryMainPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(UserStoryMainPage.this, Settings.class);
-                intent.putExtra("sourceClass", UserStoryMainPage.class.getName());
                 startActivity(intent);
             }
         });

@@ -40,8 +40,6 @@ public class Settings extends AppCompatActivity {
     boolean nightTog;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-
-    Class<?> className;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,21 +73,11 @@ public class Settings extends AppCompatActivity {
                 editor.apply();
             }
         });
-
-//        Intent intent = getIntent();
-//        if (intent != null) {
-//            try {
-//                className = Class.forName(intent.getStringExtra("sourceClass"));
-//            } catch (ClassNotFoundException e) {
-//                throw new RuntimeException(e);
-//            }
-//        }
         updateAcc.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(Settings.this, UpdateAcc.class);
-                myIntent.putExtra("sourceClass", className.getName());
                 if (myIntent != null) {
                     startActivity(myIntent);
                 }
@@ -100,8 +88,7 @@ public class Settings extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Settings.this, className);
-                startActivity(intent);
+                finish();
             }
         });
 
