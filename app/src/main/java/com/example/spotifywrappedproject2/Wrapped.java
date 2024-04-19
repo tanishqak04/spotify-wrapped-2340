@@ -102,7 +102,7 @@ public class Wrapped extends AppCompatActivity {
             FirebaseFirestore db = FirebaseFirestore.getInstance();
 
 
-                // Create a new Wrapped with a first and last name
+                // Create a new Wrapped with a date, songs, and urls
                 Map<String, Object> wrap = new HashMap<>();
                 wrap.put("songs", songs);
                 wrap.put("urls", urls);
