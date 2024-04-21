@@ -42,34 +42,39 @@ public class UpdateAcc extends AppCompatActivity {
 
         submitButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                email = String.valueOf(editTextEmail.getText());
-                password = String.valueOf(editTextPassword.getText());
+                String email = editTextEmail.getText().toString();
+                String password = editTextPassword.getText().toString();
 
-                currentUser.updateEmail(email)
-                        .addOnCompleteListener(new OnCompleteListener<Void>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Void> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(UpdateAcc.this, "Email Updated",
-                                            Toast.LENGTH_SHORT).show();
-                                    currentUser.updatePassword(password)
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                @Override
-                                                public void onComplete(@NonNull Task<Void> task) {
-                                                    if (task.isSuccessful()) {
-                                                        Toast.makeText(UpdateAcc.this, "Password Updated",
-                                                                Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(UpdateAcc.this, Settings.class);
-                                                        startActivity(intent);
+                if (currentUser != null) {
+                    currentUser.verifyBeforeUpdateEmail(email)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(UpdateAcc.this, "Email Updated", Toast.LENGTH_SHORT).show();
+                                        currentUser.updatePassword(password)
+                                                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        if (task.isSuccessful()) {
+                                                            Toast.makeText(UpdateAcc.this, "Password Updated", Toast.LENGTH_SHORT).show();
+                                                            finish();
+                                                        } else {
+                                                            Log.e("UpdateAcc", "Failed to update password: " + task.getException());
+                                                            Toast.makeText(UpdateAcc.this, "Failed to update password", Toast.LENGTH_SHORT).show();
+                                                        }
                                                     }
-                                                }
-                                            });
-
+                                                });
+                                    } else {
+                                        Log.e("UpdateAcc", "Failed to update email: " + task.getException());
+                                        Toast.makeText(UpdateAcc.this, "Failed to update email", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
-
-                            }
-                        });
-
+                            });
+                } else {
+                    Log.e("UpdateAcc", "User is not signed in");
+                    Toast.makeText(UpdateAcc.this, "User is not signed in", Toast.LENGTH_SHORT).show();
+                }
             }
 
 
