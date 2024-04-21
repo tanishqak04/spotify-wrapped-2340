@@ -8,6 +8,31 @@
     android:id="@+id/myLayout"
     tools:context=".Wrapped">
 
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="12dp"
+        android:layout_toEndOf="@+id/exportButton"
+        android:backgroundTint="#505050"
+        android:text="@string/save"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/exportButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="#505050"
+        android:text="@string/export"
+        android:textSize="14sp" />
+
     <View
         android:id="@+id/past_title_view"
         android:layout_width="match_parent"
@@ -217,6 +242,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="42dp"
         android:layout_marginBottom="12dp"
+        android:layout_toStartOf="@+id/exportButton"
         android:backgroundTint="#505050"
         android:text="@string/back"
         android:textSize="14sp" />
