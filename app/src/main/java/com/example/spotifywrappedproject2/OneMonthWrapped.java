@@ -1,5 +1,6 @@
 package com.example.spotifywrappedproject2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -14,6 +15,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,7 +29,11 @@ import org.w3c.dom.Text;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -35,6 +45,8 @@ public class OneMonthWrapped extends AppCompatActivity {
     private ImageView[] imageViews = new ImageView[5];
     private TextView[] textViews = new TextView[5];
     private RelativeLayout relativeLayout;
+    private ArrayList<String> songs = new ArrayList<>();
+    private ArrayList<String> urls = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +56,7 @@ public class OneMonthWrapped extends AppCompatActivity {
         // Initialize Views
         initViews();
 
+        Button saveButton = findViewById(R.id.saveButton);
         Button backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(v -> finish());
 
@@ -57,6 +70,45 @@ public class OneMonthWrapped extends AppCompatActivity {
 
         api = new API(accessToken); // Initialize API with accessToken
         fetchAndDisplayTopTracks();
+
+        saveButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+
+                // Create a new Wrapped with a date, songs, and urls
+                Map<String, Object> wrap = new HashMap<>();
+                wrap.put("songs", songs);
+                wrap.put("urls", urls);
+                LocalDate currDate = LocalDate.now();
+                int year = currDate.getYear();
+                int month = currDate.getMonthValue();
+                int day = currDate.getDayOfMonth();
+                String dateString = String.format("%02d-%02d-%04d", month, day, year);
+                wrap.put("date", dateString);
+
+                String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+
+                // Add a new document with a generated ID
+                db.collection("users").document(userID).collection("wrapped")
+                        .add(wrap)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Toast.makeText(OneMonthWrapped.this, "Saved!", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(OneMonthWrapped.this, "Failed to Save", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+            }
+        });
     }
 
     private void initViews() {
@@ -96,6 +148,9 @@ public class OneMonthWrapped extends AppCompatActivity {
                         JSONObject track = items.getJSONObject(i);
                         String trackName = track.getString("name");
                         String imageUrl = track.getJSONObject("album").getJSONArray("images").getJSONObject(0).getString("url");
+
+                        urls.add(imageUrl);
+                        songs.add(trackName);
 
                         Glide.with(OneMonthWrapped.this).load(imageUrl).into(imageViews[i]);
                         textViews[i].setText(trackName);

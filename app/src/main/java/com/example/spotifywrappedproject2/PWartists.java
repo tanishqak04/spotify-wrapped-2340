@@ -15,22 +15,20 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class wrapped4 extends AppCompatActivity {
-    private int[] imageViewIds = {R.id.albumCover1, R.id.albumCover2, R.id.albumCover3, R.id.albumCover4, R.id.albumCover5};
-    private int[] textViewIds = {R.id.songTitle1, R.id.songTitle2, R.id.songTitle3, R.id.songTitle4, R.id.songTitle5};
+public class PWartists extends AppCompatActivity {
+    private int[] imageViewIds = {R.id.artistPic1, R.id.artistPic2, R.id.artistPic3, R.id.artistPic4, R.id.artistPic5};
+    private int[] textViewIds = {R.id.artistName1, R.id.artistName2, R.id.artistName3, R.id.artistName4, R.id.artistName5};
     Map<String, Object> receivedMap;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_wrapped4);
-        Button backButton = findViewById(R.id.backButton);
+        setContentView(R.layout.activity_pwartists);
 
         Intent intent = getIntent();
         try {
-             receivedMap = (Map<String, Object>) intent.getSerializableExtra("map");
+            receivedMap = (Map<String, Object>) intent.getSerializableExtra("map");
         } catch (Exception e) {
-            Toast.makeText(wrapped4.this, "No data Available", Toast.LENGTH_SHORT).show();
+            Toast.makeText(PWartists.this, "No data Available", Toast.LENGTH_SHORT).show();
         }
 
         if (receivedMap != null) {
@@ -38,17 +36,21 @@ public class wrapped4 extends AppCompatActivity {
             TextView header = findViewById(R.id.past_wrap_title);
             String headText = "Your " + date + " Wrapped";
             header.setText(headText);
+
             ArrayList<String> songs = (ArrayList<String>) receivedMap.get("songs");
             ArrayList<String> urls = (ArrayList<String>) receivedMap.get("urls");
 
             for (int i = 0; i < 5; i++) {
-                ImageView album = findViewById(imageViewIds[i]);
-                TextView title = findViewById(textViewIds[i]);
+                ImageView img = findViewById(imageViewIds[i]);
+                TextView artist = findViewById(textViewIds[i]);
 
-                title.setText(songs.get(i));
-                Glide.with(wrapped4.this).load(urls.get(i)).into(album);
+                artist.setText(songs.get(i));
+                Glide.with(PWartists.this).load(urls.get(i)).into(img);
             }
         }
+
+
+        Button backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
