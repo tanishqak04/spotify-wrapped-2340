@@ -64,7 +64,7 @@ public class PastWrappedScreen extends AppCompatActivity {
         cardViewWrap22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PastWrappedScreen.this, wrapped2.class);
+                Intent intent = new Intent(PastWrappedScreen.this, wrapped1.class);
                 intent.putExtra("map", (Serializable) map2);
                 if (map2 != null) {
                     startActivity(intent);
@@ -75,7 +75,7 @@ public class PastWrappedScreen extends AppCompatActivity {
         cardViewWrap21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PastWrappedScreen.this, wrapped3.class);
+                Intent intent = new Intent(PastWrappedScreen.this, wrapped1.class);
                 intent.putExtra("map", (Serializable) map3);
                 if (map3 != null) {
                     startActivity(intent);
@@ -86,7 +86,7 @@ public class PastWrappedScreen extends AppCompatActivity {
         cardViewWrap20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PastWrappedScreen.this, wrapped4.class);
+                Intent intent = new Intent(PastWrappedScreen.this, wrapped1.class);
                 intent.putExtra("map", (Serializable) map4);
                 if (map4 != null) {
                     startActivity(intent);
@@ -97,7 +97,7 @@ public class PastWrappedScreen extends AppCompatActivity {
         cardViewWrap19.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PastWrappedScreen.this, wrapped5.class);
+                Intent intent = new Intent(PastWrappedScreen.this, wrapped1.class);
                 intent.putExtra("map", (Serializable) map5);
                 if (map5 != null) {
                     startActivity(intent);
@@ -108,7 +108,7 @@ public class PastWrappedScreen extends AppCompatActivity {
         cardViewWrap18.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PastWrappedScreen.this, wrapped6.class);
+                Intent intent = new Intent(PastWrappedScreen.this, wrapped1.class);
                 intent.putExtra("map", (Serializable) map6);
                 if (map6 != null) {
                     startActivity(intent);

@@ -44,21 +44,6 @@
             android:name=".ChristmasWrap"
             android:exported="false" />
         <activity
-            android:name=".wrapped6"
-            android:exported="false" />
-        <activity
-            android:name=".wrapped5"
-            android:exported="false" />
-        <activity
-            android:name=".wrapped4"
-            android:exported="false" />
-        <activity
-            android:name=".wrapped3"
-            android:exported="false" />
-        <activity
-            android:name=".wrapped2"
-            android:exported="false" />
-        <activity
             android:name=".wrapped1"
             android:exported="false" />
         <activity
