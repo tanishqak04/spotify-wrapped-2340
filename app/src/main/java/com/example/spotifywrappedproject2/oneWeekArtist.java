@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -57,6 +58,17 @@ public class oneWeekArtist extends AppCompatActivity {
 
         api = new API(accessToken); // Initialize API with accessToken
         fetchAndDisplayTopArtists();
+
+
+        relativeLayout = findViewById(R.id.myLayout);
+        Button exportButton = (Button) findViewById(R.id.exportButton);
+
+        exportButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                saveImage();
+            }
+        });
     }
 
     private void initViews() {
@@ -108,5 +120,42 @@ public class oneWeekArtist extends AppCompatActivity {
         } catch (JSONException e) {
             runOnUiThread(() -> Toast.makeText(oneWeekArtist.this, "JSON parsing error: " + e.getMessage(), Toast.LENGTH_SHORT).show());
         }
+    }
+
+    private void saveImage() {
+        relativeLayout.setDrawingCacheEnabled(true);
+        relativeLayout.buildDrawingCache();
+        relativeLayout.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+        Bitmap bitmap = relativeLayout.getDrawingCache();
+
+        save(bitmap);
+
+    }
+    private void save(Bitmap bitmap) {
+
+        String root = Environment.getExternalStorageDirectory().getAbsolutePath();
+        File file = new File(root + "/Download");
+        String fileName = "img" + Calendar.getInstance().get(Calendar.MILLISECOND) + ".jpg";
+        File myFile = new File(file, fileName);
+
+        if (myFile.exists()) {
+            myFile.delete();
+        }
+
+        try {
+            FileOutputStream fileOutputStream = new FileOutputStream(myFile);
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+            fileOutputStream.flush();
+            fileOutputStream.close();
+
+            Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
+            relativeLayout.setDrawingCacheEnabled(false);
+
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            Toast.makeText(this, "Error : " + e.toString(), Toast.LENGTH_SHORT).show();
+        }
+
+
     }
 }
