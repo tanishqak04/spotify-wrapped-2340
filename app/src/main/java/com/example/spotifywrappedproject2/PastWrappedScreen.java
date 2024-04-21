@@ -52,10 +52,16 @@ public class PastWrappedScreen extends AppCompatActivity {
         cardViewWrap23.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PastWrappedScreen.this, wrapped1.class);
-                intent.putExtra("map", (Serializable) map1);
                 if (map1 != null) {
-                    startActivity(intent);
+                    if (map1.containsKey("artist")) {
+                        Intent intent = new Intent(PastWrappedScreen.this, PWartists.class);
+                        intent.putExtra("map", (Serializable) map1);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(PastWrappedScreen.this, PWsongs.class);
+                        intent.putExtra("map", (Serializable) map1);
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -64,10 +70,16 @@ public class PastWrappedScreen extends AppCompatActivity {
         cardViewWrap22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PastWrappedScreen.this, wrapped1.class);
-                intent.putExtra("map", (Serializable) map2);
                 if (map2 != null) {
-                    startActivity(intent);
+                    if (map2.containsKey("artist")) {
+                        Intent intent = new Intent(PastWrappedScreen.this, PWartists.class);
+                        intent.putExtra("map", (Serializable) map2);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(PastWrappedScreen.this, PWsongs.class);
+                        intent.putExtra("map", (Serializable) map2);
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -75,10 +87,16 @@ public class PastWrappedScreen extends AppCompatActivity {
         cardViewWrap21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PastWrappedScreen.this, wrapped1.class);
-                intent.putExtra("map", (Serializable) map3);
                 if (map3 != null) {
-                    startActivity(intent);
+                    if (map3.containsKey("artist")) {
+                        Intent intent = new Intent(PastWrappedScreen.this, PWartists.class);
+                        intent.putExtra("map", (Serializable) map3);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(PastWrappedScreen.this, PWsongs.class);
+                        intent.putExtra("map", (Serializable) map3);
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -86,10 +104,16 @@ public class PastWrappedScreen extends AppCompatActivity {
         cardViewWrap20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PastWrappedScreen.this, wrapped1.class);
-                intent.putExtra("map", (Serializable) map4);
                 if (map4 != null) {
-                    startActivity(intent);
+                    if (map4.containsKey("artist")) {
+                        Intent intent = new Intent(PastWrappedScreen.this, PWartists.class);
+                        intent.putExtra("map", (Serializable) map4);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(PastWrappedScreen.this, PWsongs.class);
+                        intent.putExtra("map", (Serializable) map4);
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -97,10 +121,16 @@ public class PastWrappedScreen extends AppCompatActivity {
         cardViewWrap19.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PastWrappedScreen.this, wrapped1.class);
-                intent.putExtra("map", (Serializable) map5);
                 if (map5 != null) {
-                    startActivity(intent);
+                    if (map5.containsKey("artist")) {
+                        Intent intent = new Intent(PastWrappedScreen.this, PWartists.class);
+                        intent.putExtra("map", (Serializable) map5);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(PastWrappedScreen.this, PWsongs.class);
+                        intent.putExtra("map", (Serializable) map5);
+                        startActivity(intent);
+                    }
                 }
             }
         });
@@ -108,10 +138,16 @@ public class PastWrappedScreen extends AppCompatActivity {
         cardViewWrap18.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(PastWrappedScreen.this, wrapped1.class);
-                intent.putExtra("map", (Serializable) map6);
                 if (map6 != null) {
-                    startActivity(intent);
+                    if (map6.containsKey("artist")) {
+                        Intent intent = new Intent(PastWrappedScreen.this, PWartists.class);
+                        intent.putExtra("map", (Serializable) map6);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(PastWrappedScreen.this, PWsongs.class);
+                        intent.putExtra("map", (Serializable) map6);
+                        startActivity(intent);
+                    }
                 }
             }
         });
