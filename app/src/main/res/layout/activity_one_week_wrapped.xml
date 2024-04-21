@@ -60,6 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/_1"
+                android:textColor="@color/black"
                 android:textSize="50sp"
                 android:textStyle="bold|italic" />
 
@@ -80,6 +81,7 @@
                 android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="24sp"
+                android:textColor="@color/black"
                 android:textStyle="bold|italic" />
 
         </LinearLayout>
@@ -95,6 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/_2"
+                android:textColor="@color/black"
                 android:textSize="50sp"
                 android:textStyle="bold|italic"/>
 
@@ -115,6 +118,7 @@
                 android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="24sp"
+                android:textColor="@color/black"
                 android:textStyle="bold|italic" />
         </LinearLayout>
 
@@ -129,6 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/_3"
+                android:textColor="@color/black"
                 android:textSize="50sp"
                 android:textStyle="bold|italic" />
 
@@ -148,6 +153,7 @@
                 android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="24sp"
+                android:textColor="@color/black"
                 android:textStyle="bold|italic" />
         </LinearLayout>
 
@@ -162,6 +168,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/_4"
+                android:textColor="@color/black"
                 android:textSize="50sp"
                 android:textStyle="bold|italic" />
 
@@ -182,6 +189,7 @@
                 android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="24sp"
+                android:textColor="@color/black"
                 android:textStyle="bold|italic" />
         </LinearLayout>
 
@@ -196,6 +204,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:text="@string/_5"
+                android:textColor="@color/black"
                 android:textSize="50sp"
                 android:textStyle="bold|italic" />
 
@@ -216,6 +225,7 @@
                 android:paddingTop="20dp"
                 android:text="@string/temp_top_song_name"
                 android:textSize="24sp"
+                android:textColor="@color/black"
                 android:textStyle="bold|italic" />
         </LinearLayout>
 
