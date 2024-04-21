@@ -34,7 +34,8 @@
         android:layout_height="48dp"
         android:layout_below="@id/past_title_view"
         android:layout_marginTop="5dp"
-        android:layout_marginBottom="5dp" />
+        android:layout_marginBottom="5dp"
+        android:visibility="invisible" />
 
     <ScrollView
         android:id="@+id/scrollView"
