@@ -16,8 +16,9 @@ We implemented the following user stories and features:
 - User Story 12 - Firebase: Firebase implementation lets the user sign into their account from any device. 
 - User Story 14 - Settings: The settings page allows the user to access different types of functionality in one screen - notifications, dark mode, update and delete account. 
 
+Project Website: https://sites.google.com/view/spotify-wrapped-2340/home
 
-
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/SH8X124ULzg/0.jpg)](https://www.youtube.com/watch?v=SH8X124ULzg)
 
 
 
